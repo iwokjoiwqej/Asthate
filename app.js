@@ -9,7 +9,7 @@ const state = {
   // 🔧 Edit anytime (keep high-level, investor-safe)
   kpis: [
     {
-      label: "AUM (Asset Under Management)",
+      label: "AUM",
       value: "94.2K USD",
       sub: "Internally managed capital (indicative)",
     },
