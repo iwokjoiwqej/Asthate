@@ -26,7 +26,7 @@ const state = {
     {
       label: "Avg Return rate",
       value: "12.43% IRR",
-      sub: "Risk governance overrides return optimization",
+      sub: "Historical & Back-tested IRR",
     },
   ],
 };
