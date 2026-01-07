@@ -3,23 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IAM Capital — Systematic Digital Asset Strategies</title>
-  <meta name="description" content="IAM Capital is a systematic digital asset investment firm focused on risk-adjusted returns through hedged yield and quantitative trading." />
+  <title>IAM Capital — Systematic Digital Asset Investment</title>
+  <meta name="description" content="IAM Capital is a systematic digital asset investment firm focused on risk-first, repeatable, and transparent reporting for qualified counterparties." />
   <meta name="theme-color" content="#0b1220" />
+
+  <!-- Favicon pack (adjust paths if needed) -->
+  <link rel="icon" href="./assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="manifest" href="./assets/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IAM Capital">
+  <meta property="og:description" content="Systematic digital asset investment. Risk-first framework with transparent reporting." />
+  <meta property="og:image" content="https://iamcapital.xyz/assets/og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://iamcapital.xyz/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="./assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
-  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
-
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="./assets/site.webmanifest">
-  <meta name="theme-color" content="#0b1220">
-  
 </head>
 
 <body>
@@ -33,18 +37,30 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
+        <a href="#framework">Framework</a>
+        <a href="#reporting">Reporting</a>
         <a href="#risk">Risk</a>
-        <a href="#track">Track Record</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="headerRight">
+        <button class="ghostBtn menuBtn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+
         <button class="ghostBtn" id="themeBtn" type="button" aria-label="Toggle theme">
           <span class="dot"></span>
           Theme
         </button>
+
         <a class="cta" href="#contact">Request an intro</a>
       </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobileNav" id="mobileNav" aria-hidden="true">
+      <a href="#framework">Framework</a>
+      <a href="#reporting">Reporting</a>
+      <a href="#risk">Risk</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
@@ -59,141 +75,278 @@
           </div>
 
           <h1>
-            Risk-first strategies for
-            <span class="grad">repeatable returns</span>.
+            Risk-first. Disciplined.
+            <span class="grad">Built to last.</span>
           </h1>
 
           <p class="lead">
-            IAM Capital combines hedged yield strategies and quantitative automated trading to target
-            sustainable, risk-adjusted performance across crypto market cycles.
+            IAM Capital is a systematic digital asset investment firm focused on repeatable, risk-adjusted outcomes.
+            We prioritize robust risk controls, operational discipline, and clear reporting.
           </p>
 
+          <div class="heroBtns">
+            <a class="primary" href="#framework">View framework</a>
+            <a class="secondary" href="#reporting">Reporting standards</a>
+          </div>
+
           <p class="note">
-            *Illustrative only. Past performance does not guarantee future results.
+            For informational purposes only. Not investment advice.
           </p>
         </div>
 
         <div class="heroRight">
           <div class="card big">
             <div class="cardTop">
-              <div class="cardTitle">Snapshot</div>
-              <div class="cardTag">Illustrative</div>
+              <div class="cardTitle">Firm Snapshot</div>
+              <div class="cardTag">High-level</div>
             </div>
 
-            <div class="kpis" id="kpiGrid">
-              <!-- KPI cards injected by app.js -->
-            </div>
+            <div class="kpis" id="kpiGrid"></div>
 
             <div class="divider"></div>
 
             <div class="mini">
               <div class="miniRow">
-                <div class="miniKey">Primary focus</div>
-                <div class="miniVal">Capital preservation + systematic return engine</div>
+                <div class="miniKey">Mandate</div>
+                <div class="miniVal">Risk-managed digital asset strategies</div>
               </div>
               <div class="miniRow">
-                <div class="miniKey">Execution</div>
-                <div class="miniVal">Fee-aware, risk-capped, automated monitoring</div>
+                <div class="miniKey">Reporting</div>
+                <div class="miniVal">Monthly cadence with risk metrics</div>
               </div>
               <div class="miniRow">
-                <div class="miniKey">Market stance</div>
-                <div class="miniVal">Hedged / regime-aware exposure</div>
+                <div class="miniKey">Counterparties</div>
+                <div class="miniVal">Qualified investors / partners</div>
               </div>
             </div>
           </div>
 
           <div class="card small">
-            <div class="cardTitle">Two-Pillar Model</div>
+            <div class="cardTitle">Disclosure</div>
             <p class="muted">
-              Stable yield acts as a capital anchor. Quant trading provides a return engine with controlled risk.
+              We do not publicly disclose proprietary strategy parameters or execution logic.
+              Framework and reporting standards are presented at a high level.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LOGO STRIP -->
+    <!-- STRIP -->
     <section class="strip">
       <div class="container stripInner">
-        <div class="stripLabel">Built for</div>
+        <div class="stripLabel">Principles</div>
         <div class="stripItems">
-          <span>Risk management</span>
-          <span>Transparent reporting</span>
+          <span>Risk-first controls</span>
           <span>Fee-aware execution</span>
-          <span>Scalable infrastructure</span>
+          <span>Liquidity discipline</span>
+          <span>Transparent reporting</span>
         </div>
       </div>
     </section>
 
-   
-    <!-- RISK -->
-    <section class="section" id="risk">
+    <!-- FRAMEWORK -->
+    <section class="section" id="framework">
       <div class="container">
         <div class="sectionHead">
-          <h2>Risk Framework</h2>
+          <h2>Framework</h2>
           <p class="muted">
-            Clear guardrails at the firm and strategy level. Automation is monitored, logged, and fail-safe by design.
+            A disciplined operating model designed for robustness across market regimes.
+            We focus on process quality, risk governance, and consistency of reporting.
+          </p>
+        </div>
+
+        <div class="grid2">
+          <article class="panel">
+            <div class="panelHead">
+              <div class="badge">Investment</div>
+              <h3>Portfolio Construction</h3>
+            </div>
+            <p class="muted">
+              Capital is allocated across complementary return drivers with a clear mandate:
+              preserve capital first, then optimize risk-adjusted returns.
+            </p>
+
+            <ul class="list">
+              <li><span class="tick">✓</span> Allocation by regime and liquidity conditions</li>
+              <li><span class="tick">✓</span> Diversification across instruments and exposures</li>
+              <li><span class="tick">✓</span> Strict constraints on leverage and concentration</li>
+            </ul>
+
+            <div class="panelFoot">
+              <div class="chip">Risk budget</div>
+              <div class="chip">Regime-aware</div>
+              <div class="chip">Liquidity-first</div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panelHead">
+              <div class="badge amber">Operations</div>
+              <h3>Execution & Controls</h3>
+            </div>
+            <p class="muted">
+              Execution is designed to reduce friction costs and operational risk.
+              Automation is monitored continuously with manual overrides and fail-safes.
+            </p>
+
+            <ul class="list">
+              <li><span class="tick">✓</span> Fee-aware execution preferences where feasible</li>
+              <li><span class="tick">✓</span> Real-time monitoring, logs, and alerting</li>
+              <li><span class="tick">✓</span> Kill-switch policy for anomaly events</li>
+            </ul>
+
+            <div class="panelFoot">
+              <div class="chip">Monitoring</div>
+              <div class="chip">Fail-safe</div>
+              <div class="chip">Audit trail</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div class="calloutIcon">⟡</div>
+          <div class="calloutText">
+            <div class="calloutTitle">What we share publicly</div>
+            <div class="muted">
+              We publish framework, governance, and reporting standards. Proprietary strategy details are shared only in private discussions where appropriate.
+            </div>
+          </div>
+        </div>
+
+        <div class="aboutRow">
+          <div class="panel aboutPanel">
+            <h3 class="h4">About IAM Capital</h3>
+            <p class="muted">
+              IAM Capital is an emerging systematic digital asset firm based in Singapore, focused on building a resilient,
+              process-driven investment platform. Our emphasis is on risk governance, operational discipline, and transparent reporting.
+            </p>
+          </div>
+
+          <div class="panel aboutPanel">
+            <h3 class="h4">Who this is for</h3>
+            <p class="muted">
+              Qualified investors and partners who value process rigor and risk management. We prioritize long-term relationships
+              over short-term marketing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORTING -->
+    <section class="section" id="reporting">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Reporting</h2>
+          <p class="muted">
+            Institutional-style reporting standards. Net-of-fees results and risk metrics are communicated on a consistent cadence.
           </p>
         </div>
 
         <div class="grid3">
           <div class="panel">
-            <h3 class="h4">Firm-level controls</h3>
+            <h3 class="h4">Cadence</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Portfolio drawdown cap (e.g., 2%–5% threshold)</li>
-              <li><span class="tick">✓</span> Kill-switch: halt all strategies and review</li>
-              <li><span class="tick">✓</span> Exposure limits by asset, venue, and correlation regime</li>
+              <li><span class="tick">✓</span> Monthly investor letter</li>
+              <li><span class="tick">✓</span> Commentary on regime changes</li>
+              <li><span class="tick">✓</span> Operational updates when needed</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3 class="h4">Strategy-level controls</h3>
+            <h3 class="h4">Metrics</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Max drawdown per strategy + auto-disable</li>
-              <li><span class="tick">✓</span> Position sizing rules & leverage caps</li>
-              <li><span class="tick">✓</span> Trade frequency limits & cooldown windows</li>
+              <li><span class="tick">✓</span> Net-of-fees performance</li>
+              <li><span class="tick">✓</span> Drawdown, volatility, exposure</li>
+              <li><span class="tick">✓</span> Risk events & mitigations</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3 class="h4">Operational controls</h3>
+            <h3 class="h4">Transparency</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Real-time monitoring, logs, and alerting</li>
-              <li><span class="tick">✓</span> Manual override procedures</li>
-              <li><span class="tick">✓</span> Fee-aware execution (maker-first where possible)</li>
+              <li><span class="tick">✓</span> Clear disclosure language</li>
+              <li><span class="tick">✓</span> High-level process visibility</li>
+              <li><span class="tick">✓</span> Private diligence available</li>
             </ul>
           </div>
-        </div>
-
-        <div class="subnote">
-          <strong>Disclosure:</strong> Digital asset markets involve substantial risk, including loss of capital.
-          This site contains illustrative information only.
-        </div>
-      </div>
-    </section>
-
-    <!-- TRACK RECORD -->
-    <section class="section" id="track">
-      <div class="container">
-        <div class="sectionHead">
-          <h2>Track Record</h2>
-          <p class="muted">
-            Use this section to publish monthly investor updates. Replace the illustrative numbers with your real net-of-fees results.
-          </p>
-        </div>
-
-        <div class="trackGrid" id="trackGrid">
-          <!-- Month cards injected by app.js -->
         </div>
 
         <div class="ctaRow">
           <div class="ctaBox">
             <div class="ctaTitle">Monthly investor letter</div>
-            <div class="muted">Upload a PDF later.</div>
+            <div class="muted">Coming soon — published as PDF with consistent structure.</div>
           </div>
-          <button class="primaryBtn" type="button" id="downloadBtn">
-            Download sample PDF
+          <button class="primaryBtn disabled" type="button" id="downloadBtn" aria-disabled="true">
+            Coming soon
           </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RISK -->
+    <section class="section" id="risk">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Risk</h2>
+          <p class="muted">
+            Guardrails are defined at both firm and portfolio levels. Risk decisions override return optimization.
+          </p>
+        </div>
+
+        <div class="grid3">
+          <div class="panel">
+            <h3 class="h4">Firm-level</h3>
+            <ul class="list compact">
+              <li><span class="tick">✓</span> Portfolio risk limits and exposure constraints</li>
+              <li><span class="tick">✓</span> Anomaly response and strategy halt policy</li>
+              <li><span class="tick">✓</span> Venue / counterparty concentration controls</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3 class="h4">Portfolio-level</h3>
+            <ul class="list compact">
+              <li><span class="tick">✓</span> Leverage discipline and position sizing rules</li>
+              <li><span class="tick">✓</span> Liquidity checks and execution constraints</li>
+              <li><span class="tick">✓</span> Continuous monitoring and review</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3 class="h4">Operational</h3>
+            <ul class="list compact">
+              <li><span class="tick">✓</span> Logging, alerting, and audit trail</li>
+              <li><span class="tick">✓</span> Manual override procedures</li>
+              <li><span class="tick">✓</span> Security hygiene and access control</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="legalGrid" id="legal">
+          <div class="panel">
+            <h3 class="h4">Risk Disclosure</h3>
+            <p class="muted small">
+              Digital assets involve substantial risk, including loss of capital, illiquidity, and counterparty risk.
+              Information on this site is for informational purposes only and does not constitute investment advice.
+              Past performance does not guarantee future results.
+            </p>
+          </div>
+          <div class="panel">
+            <h3 class="h4">Privacy</h3>
+            <p class="muted small">
+              We collect only the information you provide through the contact form. We do not sell personal data.
+              If you request deletion of submitted information, we will comply where feasible.
+            </p>
+          </div>
+          <div class="panel">
+            <h3 class="h4">Terms</h3>
+            <p class="muted small">
+              By using this website, you agree that IAM Capital is not liable for decisions made based on site content.
+              Content may be updated without notice.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -204,33 +357,67 @@
         <div class="sectionHead">
           <h2>Contact</h2>
           <p class="muted">
-            For partnerships or an introduction, reach out.
+            For introductions, partnerships, or diligence requests, send a message.
+            (Replace with your domain email when ready.)
           </p>
         </div>
 
-<div class="grid2">
-  <div class="panel">
-    <h3 class="h4">Email</h3>
-    <p class="muted">
-      <a href="mailto:alrswans0508@gmail.com">
-        alrswans0508@gmail.com
-      </a>
-    </p>
-  </div>
+        <div class="grid2">
+          <div class="panel">
+            <h3 class="h4">Send a message</h3>
 
-  <div class="panel">
-    <h3 class="h4">LinkedIn</h3>
-    <p class="muted">
-      <a 
-        href="https://www.linkedin.com/company/innovativeassetmanagement-capital/" 
-        target="_blank" 
-        rel="noopener"
-      >
-        linkedin.com/company/innovativeassetmanagement-capital
-      </a>
-    </p>
-  </div>
-</div>
+            <!-- Netlify Forms (works on static hosting) -->
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
+
+              <label class="field">
+                <span class="fieldLabel">Name</span>
+                <input class="input" type="text" name="name" placeholder="Your name" required />
+              </label>
+
+              <label class="field">
+                <span class="fieldLabel">Email</span>
+                <input class="input" type="email" name="email" placeholder="you@domain.com" required />
+              </label>
+
+              <label class="field">
+                <span class="fieldLabel">Message</span>
+                <textarea class="input" name="message" rows="5" placeholder="How can we help?" required></textarea>
+              </label>
+
+              <button class="primaryBtn" type="submit">Submit</button>
+              <p class="muted small">We typically respond within 1–3 business days.</p>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3 class="h4">Direct</h3>
+            <p class="muted">
+              <a href="mailto:alrswans0508@gmail.com">alrswans0508@gmail.com</a>
+            </p>
+
+            <div class="divider"></div>
+
+            <h3 class="h4">LinkedIn</h3>
+            <p class="muted">
+              <a href="https://www.linkedin.com/company/innovativeassetmanagement-capital/" target="_blank" rel="noopener">
+                linkedin.com/company/innovativeassetmanagement-capital
+              </a>
+            </p>
+
+            <div class="divider"></div>
+
+            <h3 class="h4">Location</h3>
+            <p class="muted">Singapore</p>
+
+            <p class="muted small">
+              Note: Public pages intentionally omit proprietary strategy details.
+            </p>
+          </div>
+        </div>
 
         <footer class="footer">
           <div class="footerLeft">
@@ -240,9 +427,9 @@
             <div class="muted small">© <span id="year"></span> IAM Capital. All rights reserved.</div>
           </div>
           <div class="footerRight muted small">
-            <a href="#risk">Risk Disclosure</a>
+            <a href="#legal">Disclosure</a>
             <span class="sep">•</span>
-            <a href="#track">Track Record</a>
+            <a href="#contact">Contact</a>
           </div>
         </footer>
       </div>
@@ -252,4 +439,3 @@
   <script src="./app.js"></script>
 </body>
 </html>
-
