@@ -15,7 +15,7 @@ const state = {
     },
     {
       label: "Team",
-      value: "4",
+      value: "4 people",
       sub: "Research, engineering & operations",
     },
     {
