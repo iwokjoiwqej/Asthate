@@ -2,7 +2,6 @@
   --bg: #070b14;
   --bg2:#0b1220;
   --card:#0f1930;
-  --card2:#0c152a;
   --text:#eaf0ff;
   --muted:#9aa7c2;
   --line: rgba(255,255,255,.10);
@@ -17,12 +16,10 @@
   --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-
 [data-theme="light"]{
   --bg: #f5f7fb;
   --bg2:#eef2f9;
   --card:#ffffff;
-  --card2:#ffffff;
   --text:#0b1220;
   --muted:#4b556b;
   --line: rgba(12,18,32,.12);
@@ -79,7 +76,6 @@ a{color:inherit; text-decoration:none}
   border:1px solid var(--line);
 }
 .brandName{font-weight:600; opacity:.92}
-
 .brand.small .brandMark{padding:5px 9px; border-radius:10px}
 
 .nav{
@@ -119,6 +115,36 @@ a{color:inherit; text-decoration:none}
   background: linear-gradient(135deg, var(--accent), var(--accent2));
 }
 
+/* Mobile menu */
+.menuBtn{
+  display:none;
+  width:44px;
+  justify-content:center;
+  font-size:18px;
+  padding:10px 0;
+}
+.mobileNav{
+  display:none;
+  position:sticky;
+  top:66px;
+  z-index:49;
+  background: rgba(7,11,20,.92);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid var(--line2);
+  padding:10px 20px 14px;
+}
+[data-theme="light"] .mobileNav{ background: rgba(245,247,251,.92); }
+.mobileNav a{
+  display:block;
+  padding:12px 12px;
+  border-radius:14px;
+  color:var(--muted);
+  font-weight:800;
+}
+.mobileNav a:hover{ background: rgba(255,255,255,.06); color:var(--text); }
+[data-theme="light"] .mobileNav a:hover{ background: rgba(12,18,32,.06); }
+.mobileNav.open{ display:block; }
+
 .hero{padding:72px 0 38px}
 .heroGrid{
   display:grid;
@@ -129,6 +155,8 @@ a{color:inherit; text-decoration:none}
 @media (max-width: 980px){
   .heroGrid{grid-template-columns:1fr}
   .nav{display:none}
+  .menuBtn{display:inline-flex}
+  .cta{display:none} /* mobile: keep clean */
 }
 
 .pill{
@@ -154,7 +182,7 @@ h1{
   letter-spacing:-0.04em;
 }
 @media (max-width: 520px){
-  h1{font-size:40px}
+  h1{font-size:36px; line-height:1.08}
 }
 .grad{
   background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -167,7 +195,7 @@ h1{
   color:var(--muted);
   font-size:16px;
   line-height:1.7;
-  max-width:58ch;
+  max-width:62ch;
 }
 
 .heroBtns{display:flex; gap:10px; flex-wrap:wrap}
@@ -186,9 +214,7 @@ h1{
   border-color: transparent;
 }
 .primary:hover{filter:brightness(1.06)}
-.secondary{
-  background: rgba(255,255,255,.05);
-}
+.secondary{ background: rgba(255,255,255,.05); }
 .secondary:hover{background: rgba(255,255,255,.08)}
 
 .note{margin:14px 0 0; color:rgba(154,167,194,.85); font-size:12px}
@@ -200,13 +226,9 @@ h1{
   padding:18px;
   box-shadow: var(--shadow);
 }
-[data-theme="light"] .card{
-  background: var(--card);
-}
-
+[data-theme="light"] .card{ background: var(--card); }
 .card.big{padding:18px}
 .card.small{margin-top:14px}
-
 .cardTop{
   display:flex; align-items:center; justify-content:space-between; gap:10px;
   margin-bottom:14px;
@@ -240,11 +262,7 @@ h1{
 .kpiVal{margin-top:6px; font-size:18px; font-weight:900; letter-spacing:-0.02em}
 .kpiSub{margin-top:6px; color:var(--muted); font-size:12px}
 
-.divider{
-  height:1px;
-  background: var(--line2);
-  margin:16px 0;
-}
+.divider{height:1px; background: var(--line2); margin:16px 0}
 
 .mini{display:flex; flex-direction:column; gap:10px}
 .miniRow{display:flex; justify-content:space-between; gap:10px}
@@ -305,9 +323,7 @@ h1{
   border-radius: var(--radius);
   padding:18px;
 }
-[data-theme="light"] .panel{
-  background: var(--card);
-}
+[data-theme="light"] .panel{ background: var(--card); }
 
 .panelHead{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
 .badge{
@@ -368,45 +384,14 @@ h3{margin:0; letter-spacing:-0.02em}
 }
 .calloutTitle{font-weight:900; margin-bottom:4px}
 
-.subnote{
+.aboutRow{
   margin-top:14px;
-  padding:14px 16px;
-  border-radius: var(--radius);
-  border:1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.65;
-}
-
-.trackGrid{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap:14px;
 }
-@media (max-width: 980px){
-  .trackGrid{grid-template-columns:1fr}
-}
-.monthCard{
-  border:1px solid var(--line2);
-  border-radius: var(--radius);
-  padding:16px;
-  background: rgba(255,255,255,.03);
-}
-.monthTop{display:flex; align-items:center; justify-content:space-between; gap:10px}
-.monthName{font-weight:900}
-.monthTag{
-  font-size:12px; font-weight:900;
-  color:var(--muted);
-  padding:6px 10px;
-  border:1px solid var(--line2);
-  border-radius:999px;
-  background: rgba(255,255,255,.02);
-}
-.monthMeta{margin-top:10px; display:grid; gap:8px}
-.metaRow{display:flex; justify-content:space-between; gap:10px; font-size:13px}
-.metaKey{color:var(--muted); font-weight:700}
-.metaVal{font-weight:900}
+@media (max-width:980px){ .aboutRow{grid-template-columns:1fr} }
+.aboutPanel{ min-height: 140px; }
 
 .ctaRow{
   margin-top:14px;
@@ -431,6 +416,50 @@ h3{margin:0; letter-spacing:-0.02em}
   background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
 }
 .primaryBtn:hover{filter:brightness(1.06)}
+.primaryBtn.disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  filter:none;
+}
+
+.legalGrid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:14px;
+}
+@media (max-width:980px){ .legalGrid{grid-template-columns:1fr} }
+
+.form{display:flex; flex-direction:column; gap:12px}
+.field{display:flex; flex-direction:column; gap:8px}
+.fieldLabel{font-size:12px; font-weight:900; color:var(--muted); letter-spacing:.02em; text-transform:uppercase}
+.input{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid var(--line2);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight:600;
+  outline:none;
+}
+[data-theme="light"] .input{
+  background: #fff;
+}
+.input:focus{
+  border-color: rgba(77,163,255,.55);
+  box-shadow: 0 0 0 4px rgba(77,163,255,.12);
+}
+textarea.input{resize:vertical}
+
+.hidden{display:none}
+
+.panel a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.panel a:hover{ color: var(--accent); }
 
 .footer{
   margin-top:24px;
@@ -445,3 +474,10 @@ h3{margin:0; letter-spacing:-0.02em}
 .footerRight a:hover{color:var(--text)}
 .sep{opacity:.45; margin:0 8px}
 .small{font-size:12px}
+
+/* Better phone UX */
+@media (max-width: 520px){
+  .container{ padding:0 16px; }
+  .hero{ padding:52px 0 28px; }
+  .primary, .secondary{ width:100%; padding:13px 14px; }
+}
