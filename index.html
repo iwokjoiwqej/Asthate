@@ -93,10 +93,14 @@
   </div>
 
           
-          <div class="heroBtns">
-            <a class="primary" href="#framework">View framework</a>
-            <a class="secondary" href="#reporting">Reporting standards</a>
-          </div>
+<div class="heroBtns">
+  <a class="primary" href="#framework">View framework</a>
+  <a class="secondary" href="#reporting">Reporting standards</a>
+  <button class="secondary" id="perfBtn" type="button">
+    View performance
+  </button>
+</div>
+
 
           <p class="note">
             For informational purposes only. Not investment advice.
@@ -224,6 +228,72 @@
         </div>
     </section>
 
+<section class="section" id="performance">
+  <div class="container">
+    <div class="sectionHead">
+      <h2>Performance</h2>
+      <p class="muted">
+        Illustrative and for informational purposes only. We share reporting structure publicly; detailed diligence is available privately.
+      </p>
+    </div>
+
+    <div class="panel perfPanel" id="perfPanel" aria-hidden="true">
+      <div class="perfTop">
+        <div>
+          <div class="h4">Quarterly summary</div>
+          <div class="muted small">Example layout — replace with your real numbers later.</div>
+        </div>
+
+        <div class="perfActions">
+          <button class="ghostBtn" id="perfClose" type="button">Close</button>
+        </div>
+      </div>
+
+      <!-- Simple bar chart (no library) -->
+      <div class="bars" id="bars">
+        <div class="bar">
+          <div class="barHead"><span>Q1</span><span class="muted small" id="q1Val">+4.8%</span></div>
+          <div class="barTrack"><div class="barFill" style="width:48%"></div></div>
+        </div>
+
+        <div class="bar">
+          <div class="barHead"><span>Q2</span><span class="muted small" id="q2Val">+2.1%</span></div>
+          <div class="barTrack"><div class="barFill" style="width:21%"></div></div>
+        </div>
+
+        <div class="bar">
+          <div class="barHead"><span>Q3</span><span class="muted small" id="q3Val">+6.3%</span></div>
+          <div class="barTrack"><div class="barFill" style="width:63%"></div></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3 class="h4">Notes</h3>
+          <ul class="list compact">
+            <li><span class="tick">✓</span> Numbers shown are placeholders</li>
+            <li><span class="tick">✓</span> Net-of-fees format recommended</li>
+            <li><span class="tick">✓</span> Strategy specifics remain proprietary</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3 class="h4">What investors receive</h3>
+          <ul class="list compact">
+            <li><span class="tick">✓</span> Monthly letter (PDF)</li>
+            <li><span class="tick">✓</span> Risk metrics summary</li>
+            <li><span class="tick">✓</span> Regime commentary</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    
     <!-- REPORTING -->
     <section class="section" id="reporting">
       <div class="container">
