@@ -78,6 +78,28 @@ function initEvents() {
       const isLight = document.documentElement.getAttribute("data-theme") === "light";
       setTheme(isLight ? "dark" : "light");
     });
+
+      // Performance toggle
+  const perfBtn = $("#perfBtn");
+  const perfPanel = $("#perfPanel");
+  const perfClose = $("#perfClose");
+
+  function openPerf(){
+    if (!perfPanel) return;
+    perfPanel.classList.add("open");
+    perfPanel.setAttribute("aria-hidden", "false");
+    // 스크롤 이동(자연스럽게)
+    document.querySelector("#performance")?.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+  function closePerf(){
+    if (!perfPanel) return;
+    perfPanel.classList.remove("open");
+    perfPanel.setAttribute("aria-hidden", "true");
+  }
+
+  perfBtn?.addEventListener("click", openPerf);
+  perfClose?.addEventListener("click", closePerf);
+
   }
 
   // Mobile menu
