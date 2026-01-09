@@ -4,156 +4,341 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IAM Capital — Systematic Digital Asset Investment</title>
-  <meta name="description" content="IAM Capital is a systematic digital asset investment firm focused on risk-first, repeatable, and transparent reporting for qualified counterparties." />
+  <meta name="description" content="IAM Capital is a systematic digital asset investment firm focused on risk-first controls, operational discipline, and institutional-style reporting." />
   <meta name="theme-color" content="#0b1220" />
 
-  <!-- Favicon pack (adjust paths if needed) -->
+  <!-- Favicons (optional: keep your existing pack in /assets) -->
   <link rel="icon" href="./assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
   <link rel="manifest" href="./assets/site.webmanifest">
 
   <!-- Open Graph -->
   <meta property="og:title" content="IAM Capital">
-  <meta property="og:description" content="Systematic digital asset investment. Risk-first framework with transparent reporting." />
+  <meta property="og:description" content="Risk-first. Disciplined. Built to last." />
   <meta property="og:image" content="https://iamcapital.xyz/assets/og-image.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iamcapital.xyz/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="header">
+  <!-- Top announcement bar (optional) -->
+  <div class="topbar" role="note">
+    <div class="container topbarInner">
+      <span class="topbarText">Institutional-style reporting standards. Framework-first, strategy details shared privately.</span>
+      <a class="topbarCta" href="#contact">Request an intro</a>
+    </div>
+  </div>
+
+  <!-- Header + Mega Menu -->
+  <header class="header" id="top">
     <div class="container headerInner">
       <a class="brand" href="#top" aria-label="IAM Capital Home">
-        <span class="brandMark">IAM</span>
-        <span class="brandName">Capital</span>
+        <img class="brandLogo" src="./assets/iam-logo.png" alt="IAM Capital logo" />
+        <span class="brandWord">IAM Capital</span>
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#framework">Framework</a>
-        <a href="#reporting">Reporting</a>
-        <a href="#risk">Risk</a>
-        <a href="#contact">Contact</a>
+        <!-- Dropdown 1 -->
+        <div class="navItem hasMega" data-mega="mega-framework">
+          <button class="navBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            Framework <span class="chev">▾</span>
+          </button>
+
+          <div class="mega" id="mega-framework" role="menu" aria-label="Framework menu">
+            <div class="megaGrid">
+              <div class="megaCol">
+                <div class="megaTitle">Framework</div>
+                <a class="megaLink" href="#framework" role="menuitem">
+                  Portfolio Construction
+                  <span class="megaSub">Risk budgeting & regime awareness</span>
+                </a>
+                <a class="megaLink" href="#execution" role="menuitem">
+                  Execution & Controls
+                  <span class="megaSub">Fee-aware, monitored, fail-safe</span>
+                </a>
+                <a class="megaLink" href="#governance" role="menuitem">
+                  Governance
+                  <span class="megaSub">Process, review, accountability</span>
+                </a>
+              </div>
+
+              <div class="megaCol">
+                <div class="megaTitle">What we share</div>
+                <a class="megaLink" href="#principles" role="menuitem">
+                  Operating principles
+                  <span class="megaSub">Clear public standards</span>
+                </a>
+                <a class="megaLink" href="#disclosure" role="menuitem">
+                  Disclosure
+                  <span class="megaSub">No public strategy parameters</span>
+                </a>
+              </div>
+
+              <div class="megaCard">
+                <div class="megaCardEyebrow">Overview</div>
+                <div class="megaCardTitle">Risk-first, repeatable outcomes</div>
+                <p class="megaCardText">
+                  We publish framework and reporting standards. Proprietary strategy details are shared privately when appropriate.
+                </p>
+                <a class="megaCardBtn" href="#framework">Explore framework</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown 2 -->
+        <div class="navItem hasMega" data-mega="mega-reporting">
+          <button class="navBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            Reporting <span class="chev">▾</span>
+          </button>
+
+          <div class="mega" id="mega-reporting" role="menu" aria-label="Reporting menu">
+            <div class="megaGrid">
+              <div class="megaCol">
+                <div class="megaTitle">Reporting</div>
+                <a class="megaLink" href="#reporting" role="menuitem">
+                  Standards
+                  <span class="megaSub">Cadence, metrics, transparency</span>
+                </a>
+                <a class="megaLink" href="#performance" role="menuitem">
+                  Performance view
+                  <span class="megaSub">Placeholder chart layout</span>
+                </a>
+              </div>
+
+              <div class="megaCol">
+                <div class="megaTitle">Investor materials</div>
+                <a class="megaLink" href="#reporting" role="menuitem">
+                  Monthly letter (PDF)
+                  <span class="megaSub">Coming soon</span>
+                </a>
+                <a class="megaLink" href="#contact" role="menuitem">
+                  Diligence request
+                  <span class="megaSub">Private discussion</span>
+                </a>
+              </div>
+
+              <div class="megaCard">
+                <div class="megaCardEyebrow">Transparency</div>
+                <div class="megaCardTitle">Consistent cadence</div>
+                <p class="megaCardText">
+                  Net-of-fees format and risk metrics communicated in a consistent structure.
+                </p>
+                <a class="megaCardBtn" href="#reporting">See standards</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dropdown 3 -->
+        <div class="navItem hasMega" data-mega="mega-risk">
+          <button class="navBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            Risk <span class="chev">▾</span>
+          </button>
+
+          <div class="mega" id="mega-risk" role="menu" aria-label="Risk menu">
+            <div class="megaGrid">
+              <div class="megaCol">
+                <div class="megaTitle">Risk</div>
+                <a class="megaLink" href="#risk" role="menuitem">
+                  Risk controls
+                  <span class="megaSub">Firm + portfolio guardrails</span>
+                </a>
+                <a class="megaLink" href="#disclosure" role="menuitem">
+                  Risk disclosure
+                  <span class="megaSub">Digital asset risk notice</span>
+                </a>
+              </div>
+
+              <div class="megaCol">
+                <div class="megaTitle">Policies</div>
+                <a class="megaLink" href="#privacy" role="menuitem">
+                  Privacy
+                  <span class="megaSub">Data handling</span>
+                </a>
+                <a class="megaLink" href="#terms" role="menuitem">
+                  Terms
+                  <span class="megaSub">Site terms</span>
+                </a>
+              </div>
+
+              <div class="megaCard">
+                <div class="megaCardEyebrow">Safety</div>
+                <div class="megaCardTitle">Risk overrides returns</div>
+                <p class="megaCardText">
+                  We define constraints and response protocols for adverse scenarios and anomalies.
+                </p>
+                <a class="megaCardBtn" href="#risk">View risk</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simple links -->
+        <a class="navLink" href="#media">Media</a>
+        <a class="navLink" href="#contact">Contact</a>
       </nav>
 
       <div class="headerRight">
-        <button class="ghostBtn menuBtn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
-
-        <button class="ghostBtn" id="themeBtn" type="button" aria-label="Toggle theme">
+        <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme">
           <span class="dot"></span>
-          Theme
         </button>
 
+        <button class="iconBtn menuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu">☰</button>
         <a class="cta" href="#contact">Request an intro</a>
       </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div class="mobileNav" id="mobileNav" aria-hidden="true">
-      <a href="#framework">Framework</a>
-      <a href="#reporting">Reporting</a>
-      <a href="#risk">Risk</a>
-      <a href="#contact">Contact</a>
+    <!-- Mobile drawer -->
+    <div class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobileTop">
+        <div class="mobileTitle">Menu</div>
+        <button class="iconBtn" id="mobileCloseBtn" type="button" aria-label="Close menu">✕</button>
+      </div>
+
+      <div class="mobileLinks">
+        <a href="#framework">Framework</a>
+        <a href="#execution">Execution</a>
+        <a href="#reporting">Reporting</a>
+        <a href="#performance">Performance</a>
+        <a href="#risk">Risk</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="container heroGrid">
         <div class="heroLeft">
-          <div class="pill">
-            <span class="pillDot"></span>
-            Systematic Digital Asset Investment
-          </div>
+          <div class="pill"><span class="pillDot"></span> Systematic Digital Asset Investment</div>
 
           <h1>
-            Risk-first. Disciplined.
+            Risk-first. Disciplined.<br />
             <span class="grad">Built to last.</span>
           </h1>
 
           <p class="lead">
-            IAM Capital is a <strong>Crypto-Based</strong> systematic digital asset investment firm focused on repeatable, risk-adjusted outcomes.
-            We prioritize robust risk controls, operational discipline, and clear reporting.
+            IAM Capital is a <strong>crypto-based</strong> systematic digital asset investment firm focused on repeatable,
+            risk-adjusted outcomes. We prioritize robust risk controls, operational discipline, and clear reporting.
           </p>
 
-  <div class="whoBox">
-    <div class="whoTitle">Who this is for</div>
-    <p class="muted whoText">
-      Qualified investors and partners who value process rigor and risk management.
-      We prioritize long-term relationships over short-term marketing.
-    </p>
-  </div>
+          <div class="whoBox">
+            <div class="whoTitle">Who this is for</div>
+            <p class="whoText">
+              Qualified investors and partners seeking institutional-style process rigor. Proprietary strategy details are shared privately when appropriate.
+            </p>
+          </div>
 
-          
-<div class="heroBtns">
-  <a class="primary" href="#framework">View framework</a>
-  <a class="secondary" href="#reporting">Reporting standards</a>
-  <button class="secondary" id="perfBtn" type="button">
-    View performance
-  </button>
-</div>
+          <div class="heroBtns">
+            <a class="primary" href="#framework">Explore framework</a>
+            <a class="secondary" href="#reporting">Reporting standards</a>
+            <button class="secondary" id="perfBtn" type="button">View performance</button>
+          </div>
 
-
-          <p class="note">
-            For informational purposes only. Not investment advice.
-          </p>
+          <p class="note">For informational purposes only. Not investment advice.</p>
         </div>
 
         <div class="heroRight">
-          <div class="card big">
-            <div class="cardTop">
-              <div class="cardTitle">Firm Snapshot</div>
-              <div class="cardTag">High-level</div>
+          <!-- Video / image showcase (you can replace assets) -->
+          <div class="showcase">
+            <div class="showTop">
+              <div class="showTitle">Firm Snapshot</div>
+              <div class="showTag">High-level</div>
             </div>
 
             <div class="kpis" id="kpiGrid"></div>
 
             <div class="divider"></div>
 
-            <div class="mini">
-              <div class="miniRow">
-                <div class="miniKey">Mandate</div>
-                <div class="miniVal">Risk-managed digital asset strategies</div>
-              </div>
-              <div class="miniRow">
-                <div class="miniKey">Reporting</div>
-                <div class="miniVal">Monthly cadence with risk metrics</div>
-              </div>
-              <div class="miniRow">
-                <div class="miniKey">Counterparties</div>
-                <div class="miniVal">Qualified investors / partners</div>
+            <div class="videoCard">
+              <!-- If you prefer image: replace <video> with <img class="heroImg" src="..."> -->
+              <video class="heroVideo" autoplay muted loop playsinline poster="./assets/hero-poster.jpg">
+                <source src="./assets/hero.mp4" type="video/mp4" />
+              </video>
+              <div class="videoOverlay">
+                <div class="videoTitle">Process-led investing</div>
+                <div class="videoSub">Governance • Controls • Reporting</div>
               </div>
             </div>
           </div>
 
-          <div class="card small">
-            <div class="cardTitle">Disclosure</div>
-            <p class="muted">
-              We do not publicly disclose proprietary strategy parameters or execution logic.
-              Framework and reporting standards are presented at a high level.
-            </p>
+          <div class="miniCard" id="principles">
+            <div class="miniTitle">Operating principles</div>
+            <div class="chips">
+              <span class="chip">Risk governance</span>
+              <span class="chip">Liquidity discipline</span>
+              <span class="chip">Fee-aware execution</span>
+              <span class="chip">Transparent reporting</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STRIP -->
-    <section class="strip">
-      <div class="container stripInner">
-        <div class="stripLabel">Principles</div>
-        <div class="stripItems">
-          <span>Risk-first controls</span>
-          <span>Fee-aware execution</span>
-          <span>Liquidity discipline</span>
-          <span>Transparent reporting</span>
+    <!-- PERFORMANCE (toggle open) -->
+    <section class="section" id="performance">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Performance</h2>
+          <p class="muted">Illustrative layout — replace with audited or verified figures when available.</p>
+        </div>
+
+        <div class="panel perfPanel" id="perfPanel" aria-hidden="true">
+          <div class="perfTop">
+            <div>
+              <div class="h4">Quarterly summary (example)</div>
+              <div class="muted small">Placeholder numbers for UI demonstration.</div>
+            </div>
+            <div class="perfActions">
+              <button class="ghostBtn" id="perfClose" type="button">Close</button>
+            </div>
+          </div>
+
+          <div class="bars">
+            <div class="bar">
+              <div class="barHead"><span>Q1</span><span class="muted small">+4.8%</span></div>
+              <div class="barTrack"><div class="barFill" style="width:48%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="barHead"><span>Q2</span><span class="muted small">+2.1%</span></div>
+              <div class="barTrack"><div class="barFill" style="width:21%"></div></div>
+            </div>
+            <div class="bar">
+              <div class="barHead"><span>Q3</span><span class="muted small">+6.3%</span></div>
+              <div class="barTrack"><div class="barFill" style="width:63%"></div></div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="grid2">
+            <div class="panel">
+              <h3 class="h4">What this page is</h3>
+              <ul class="list compact">
+                <li><span class="tick">✓</span> A clean reporting layout</li>
+                <li><span class="tick">✓</span> Strategy details remain proprietary</li>
+                <li><span class="tick">✓</span> Replace placeholders anytime</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3 class="h4">What investors receive</h3>
+              <ul class="list compact">
+                <li><span class="tick">✓</span> Monthly letter (PDF)</li>
+                <li><span class="tick">✓</span> Risk metrics summary</li>
+                <li><span class="tick">✓</span> Regime commentary</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -163,10 +348,7 @@
       <div class="container">
         <div class="sectionHead">
           <h2>Framework</h2>
-          <p class="muted">
-            A disciplined operating model designed for robustness across market regimes.
-            We focus on process quality, risk governance, and consistency of reporting.
-          </p>
+          <p class="muted">Public overview of governance and operating model. Proprietary parameters are shared privately where appropriate.</p>
         </div>
 
         <div class="grid2">
@@ -176,132 +358,49 @@
               <h3>Portfolio Construction</h3>
             </div>
             <p class="muted">
-              Capital is allocated across complementary return drivers with a clear mandate:
-              preserve capital first, then optimize risk-adjusted returns.
+              Capital is allocated across complementary return drivers with a mandate to preserve capital and optimize risk-adjusted outcomes.
             </p>
-
             <ul class="list">
-              <li><span class="tick">✓</span> Allocation by regime and liquidity conditions</li>
-              <li><span class="tick">✓</span> Diversification across instruments and exposures</li>
-              <li><span class="tick">✓</span> Strict constraints on leverage and concentration</li>
+              <li><span class="tick">✓</span> Risk budgeting and exposure limits</li>
+              <li><span class="tick">✓</span> Liquidity-first position constraints</li>
+              <li><span class="tick">✓</span> Regime-aware allocation adjustments</li>
             </ul>
-
-            <div class="panelFoot">
-              <div class="chip">Risk budget</div>
-              <div class="chip">Regime-aware</div>
-              <div class="chip">Liquidity-first</div>
-            </div>
           </article>
 
-          <article class="panel">
+          <article class="panel" id="execution">
             <div class="panelHead">
               <div class="badge amber">Operations</div>
               <h3>Execution & Controls</h3>
             </div>
             <p class="muted">
-              Execution is designed to reduce friction costs and operational risk.
-              Automation is monitored continuously with manual overrides and fail-safes.
+              Execution is designed to reduce friction costs and operational risk, with monitoring, audit trails, and response protocols.
             </p>
-
             <ul class="list">
-              <li><span class="tick">✓</span> Fee-aware execution preferences where feasible</li>
-              <li><span class="tick">✓</span> Real-time monitoring, logs, and alerting</li>
-              <li><span class="tick">✓</span> Kill-switch policy for anomaly events</li>
+              <li><span class="tick">✓</span> Fee-aware execution preferences</li>
+              <li><span class="tick">✓</span> Monitoring, logs, and alerting</li>
+              <li><span class="tick">✓</span> Fail-safe & kill-switch policy</li>
             </ul>
-
-            <div class="panelFoot">
-              <div class="chip">Monitoring</div>
-              <div class="chip">Fail-safe</div>
-              <div class="chip">Audit trail</div>
-            </div>
           </article>
         </div>
 
-        <div class="callout">
+        <div class="callout" id="governance">
           <div class="calloutIcon">⟡</div>
           <div class="calloutText">
-            <div class="calloutTitle">What we share publicly</div>
+            <div class="calloutTitle">Governance</div>
             <div class="muted">
-              We publish framework, governance, and reporting standards. Proprietary strategy details are shared only in private discussions where appropriate.
+              Formal review process, incident analysis, and continuous improvement. Risk decisions override return optimization.
             </div>
           </div>
         </div>
+      </div>
     </section>
 
-<section class="section" id="performance">
-  <div class="container">
-    <div class="sectionHead">
-      <h2>Performance</h2>
-      <p class="muted">
-        Illustrative and for informational purposes only. We share reporting structure publicly; detailed diligence is available privately.
-      </p>
-    </div>
-
-    <div class="panel perfPanel" id="perfPanel" aria-hidden="true">
-      <div class="perfTop">
-        <div>
-          <div class="h4">Quarterly summary</div>
-          <div class="muted small">Example layout — replace with your real numbers later.</div>
-        </div>
-
-        <div class="perfActions">
-          <button class="ghostBtn" id="perfClose" type="button">Close</button>
-        </div>
-      </div>
-
-      <!-- Simple bar chart (no library) -->
-      <div class="bars" id="bars">
-        <div class="bar">
-          <div class="barHead"><span>Q1</span><span class="muted small" id="q1Val">+4.8%</span></div>
-          <div class="barTrack"><div class="barFill" style="width:48%"></div></div>
-        </div>
-
-        <div class="bar">
-          <div class="barHead"><span>Q2</span><span class="muted small" id="q2Val">+2.1%</span></div>
-          <div class="barTrack"><div class="barFill" style="width:21%"></div></div>
-        </div>
-
-        <div class="bar">
-          <div class="barHead"><span>Q3</span><span class="muted small" id="q3Val">+6.3%</span></div>
-          <div class="barTrack"><div class="barFill" style="width:63%"></div></div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="grid2">
-        <div class="panel">
-          <h3 class="h4">Notes</h3>
-          <ul class="list compact">
-            <li><span class="tick">✓</span> Numbers shown are placeholders</li>
-            <li><span class="tick">✓</span> Net-of-fees format recommended</li>
-            <li><span class="tick">✓</span> Strategy specifics remain proprietary</li>
-          </ul>
-        </div>
-
-        <div class="panel">
-          <h3 class="h4">What investors receive</h3>
-          <ul class="list compact">
-            <li><span class="tick">✓</span> Monthly letter (PDF)</li>
-            <li><span class="tick">✓</span> Risk metrics summary</li>
-            <li><span class="tick">✓</span> Regime commentary</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-    
     <!-- REPORTING -->
     <section class="section" id="reporting">
       <div class="container">
         <div class="sectionHead">
-          <h2>Reporting</h2>
-          <p class="muted">
-            Institutional-style reporting standards. Net-of-fees results and risk metrics are communicated on a consistent cadence.
-          </p>
+          <h2>Reporting standards</h2>
+          <p class="muted">Institutional-style reporting cadence with net-of-fees format and risk metrics.</p>
         </div>
 
         <div class="grid3">
@@ -309,104 +408,134 @@
             <h3 class="h4">Cadence</h3>
             <ul class="list compact">
               <li><span class="tick">✓</span> Monthly investor letter</li>
-              <li><span class="tick">✓</span> Commentary on regime changes</li>
-              <li><span class="tick">✓</span> Operational updates when needed</li>
+              <li><span class="tick">✓</span> Regime commentary</li>
+              <li><span class="tick">✓</span> Operational updates as needed</li>
             </ul>
           </div>
-
           <div class="panel">
             <h3 class="h4">Metrics</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Net-of-fees performance</li>
-              <li><span class="tick">✓</span> Drawdown, volatility, exposure</li>
-              <li><span class="tick">✓</span> Risk events & mitigations</li>
+              <li><span class="tick">✓</span> Net-of-fees reporting</li>
+              <li><span class="tick">✓</span> Drawdown & exposure</li>
+              <li><span class="tick">✓</span> Risk events summary</li>
             </ul>
           </div>
-
           <div class="panel">
             <h3 class="h4">Transparency</h3>
             <ul class="list compact">
               <li><span class="tick">✓</span> Clear disclosure language</li>
-              <li><span class="tick">✓</span> High-level process visibility</li>
+              <li><span class="tick">✓</span> High-level framework shared</li>
               <li><span class="tick">✓</span> Private diligence available</li>
             </ul>
           </div>
         </div>
 
-        <div class="ctaRow">
-          <div class="ctaBox">
-            <div class="ctaTitle">Monthly investor letter</div>
-            <div class="muted">Coming soon — published as PDF with consistent structure.</div>
+        <!-- Partners strip -->
+        <div class="partners">
+          <div class="partnersLabel">Infrastructure / Partners</div>
+          <div class="partnersRow">
+            <!-- Replace logos with your own assets -->
+            <img src="./assets/partner-1.png" alt="Partner 1" />
+            <img src="./assets/partner-2.png" alt="Partner 2" />
+            <div class="partnersNote muted">Add verified partners only. Avoid implying sponsorship if not true.</div>
           </div>
-          <button class="primaryBtn disabled" type="button" id="downloadBtn" aria-disabled="true">
-            Coming soon
-          </button>
         </div>
       </div>
     </section>
 
-    <!-- RISK -->
+    <!-- RISK + LEGAL -->
     <section class="section" id="risk">
       <div class="container">
         <div class="sectionHead">
           <h2>Risk</h2>
-          <p class="muted">
-            Guardrails are defined at both firm and portfolio levels. Risk decisions override return optimization.
-          </p>
+          <p class="muted">Guardrails across firm and portfolio levels. Operational discipline is part of the investment process.</p>
         </div>
 
         <div class="grid3">
           <div class="panel">
             <h3 class="h4">Firm-level</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Portfolio risk limits and exposure constraints</li>
-              <li><span class="tick">✓</span> Anomaly response and strategy halt policy</li>
-              <li><span class="tick">✓</span> Venue / counterparty concentration controls</li>
+              <li><span class="tick">✓</span> Exposure constraints</li>
+              <li><span class="tick">✓</span> Incident response protocol</li>
+              <li><span class="tick">✓</span> Venue concentration controls</li>
             </ul>
           </div>
-
           <div class="panel">
             <h3 class="h4">Portfolio-level</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Leverage discipline and position sizing rules</li>
-              <li><span class="tick">✓</span> Liquidity checks and execution constraints</li>
-              <li><span class="tick">✓</span> Continuous monitoring and review</li>
+              <li><span class="tick">✓</span> Leverage discipline</li>
+              <li><span class="tick">✓</span> Position sizing rules</li>
+              <li><span class="tick">✓</span> Liquidity constraints</li>
             </ul>
           </div>
-
           <div class="panel">
             <h3 class="h4">Operational</h3>
             <ul class="list compact">
-              <li><span class="tick">✓</span> Logging, alerting, and audit trail</li>
-              <li><span class="tick">✓</span> Manual override procedures</li>
-              <li><span class="tick">✓</span> Security hygiene and access control</li>
+              <li><span class="tick">✓</span> Logs & monitoring</li>
+              <li><span class="tick">✓</span> Manual overrides</li>
+              <li><span class="tick">✓</span> Access control hygiene</li>
             </ul>
           </div>
         </div>
 
-        <div class="legalGrid" id="legal">
+        <div class="legalGrid" id="disclosure">
           <div class="panel">
             <h3 class="h4">Risk Disclosure</h3>
             <p class="muted small">
               Digital assets involve substantial risk, including loss of capital, illiquidity, and counterparty risk.
-              Information on this site is for informational purposes only and does not constitute investment advice.
+              This website is for informational purposes only and does not constitute investment advice.
               Past performance does not guarantee future results.
             </p>
           </div>
-          <div class="panel">
+          <div class="panel" id="privacy">
             <h3 class="h4">Privacy</h3>
             <p class="muted small">
-              We collect only the information you provide through the contact form. We do not sell personal data.
-              If you request deletion of submitted information, we will comply where feasible.
+              We collect only information you provide via the contact form. We do not sell personal data.
             </p>
           </div>
-          <div class="panel">
+          <div class="panel" id="terms">
             <h3 class="h4">Terms</h3>
             <p class="muted small">
-              By using this website, you agree that IAM Capital is not liable for decisions made based on site content.
+              By using this website, you agree IAM Capital is not liable for decisions made based on site content.
               Content may be updated without notice.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA -->
+    <section class="section" id="media">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Media</h2>
+          <p class="muted">Add photos/videos you download. Keep it minimal and premium.</p>
+        </div>
+
+        <div class="mediaGrid">
+          <a class="mediaCard" href="./assets/media-1.jpg" target="_blank" rel="noopener">
+            <img src="./assets/media-1.jpg" alt="Media 1" />
+            <div class="mediaOverlay">
+              <div class="mediaTitle">Research</div>
+              <div class="mediaSub">Process-led development</div>
+            </div>
+          </a>
+
+          <a class="mediaCard" href="./assets/media-2.jpg" target="_blank" rel="noopener">
+            <img src="./assets/media-2.jpg" alt="Media 2" />
+            <div class="mediaOverlay">
+              <div class="mediaTitle">Risk</div>
+              <div class="mediaSub">Governance & controls</div>
+            </div>
+          </a>
+
+          <a class="mediaCard" href="./assets/media-3.jpg" target="_blank" rel="noopener">
+            <img src="./assets/media-3.jpg" alt="Media 3" />
+            <div class="mediaOverlay">
+              <div class="mediaTitle">Reporting</div>
+              <div class="mediaSub">Institutional cadence</div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -416,17 +545,14 @@
       <div class="container">
         <div class="sectionHead">
           <h2>Contact</h2>
-          <p class="muted">
-            For introductions, partnerships, or diligence requests, send a message.
-            (Replace with your domain email when ready.)
-          </p>
+          <p class="muted">Introductions, partnerships, or diligence requests.</p>
         </div>
 
         <div class="grid2">
           <div class="panel">
             <h3 class="h4">Send a message</h3>
 
-            <!-- Netlify Forms (works on static hosting) -->
+            <!-- Netlify Forms -->
             <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
               <input type="hidden" name="form-name" value="contact" />
               <p class="hidden">
@@ -472,36 +598,19 @@
 
             <h3 class="h4">Location</h3>
             <p class="muted">Singapore</p>
-
-            <p class="muted small">
-              Note: Public pages intentionally omit proprietary strategy details.
-            </p>
           </div>
         </div>
 
-  <section class="strip">
-    <div class="container stripInner">
-      <div class="stripLabel">Partners</div>
-      <div class="stripItems">
-        <span>Sponsored by <strong>Company A</strong></span>
-        <span>Supported by <strong>Company B</strong></span>
-        <span>Infrastructure: <strong>Vendor C</strong></span>
-      </div>
-    </div>
-  </section>
-
-        
         <footer class="footer">
           <div class="footerLeft">
-            <div class="brand small">
-              <span class="brandMark">IAM</span><span class="brandName">Capital</span>
-            </div>
             <div class="muted small">© <span id="year"></span> IAM Capital. All rights reserved.</div>
           </div>
           <div class="footerRight muted small">
-            <a href="#legal">Disclosure</a>
+            <a href="#disclosure">Disclosure</a>
             <span class="sep">•</span>
-            <a href="#contact">Contact</a>
+            <a href="#privacy">Privacy</a>
+            <span class="sep">•</span>
+            <a href="#terms">Terms</a>
           </div>
         </footer>
       </div>
