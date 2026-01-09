@@ -673,3 +673,23 @@ h3{margin:0; letter-spacing:-0.02em}
   .logoChip{ height: 64px; min-width: 140px; }
   .logoChip img{ max-height: 42px; max-width: 210px; }
 }
+
+@keyframes marqueeMove {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
+
+/* Force animation back on track */
+.marqueeTrack{
+  display:flex !important;
+  align-items:center !important;
+  width:max-content !important;
+  will-change: transform !important;
+  animation: marqueeMove 36s linear infinite !important;
+  animation-play-state: running !important;
+}
+
+/* Prevent accidental pause from other rules */
+.marquee:hover .marqueeTrack{
+  animation-play-state: paused !important; /* hover시에만 멈춤 */
+}
