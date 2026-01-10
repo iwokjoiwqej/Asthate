@@ -1,801 +1,151 @@
-:root{
-  --bg:#070b14;
-  --bg2:#0b1220;
-  --card:#0f1930;
-  --text:#eaf0ff;
-  --muted:#a6b2cb;
-  --line: rgba(255,255,255,.10);
-  --line2: rgba(255,255,255,.06);
-  --accent:#4da3ff;
-  --accent2:#7c5cff;
-  --amber:#ffb347;
-  --shadow: 0 18px 60px rgba(0,0,0,.45);
-  --radius: 18px;
-  --radius2: 26px;
-  --max: 1120px;
-  --font:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-[data-theme="light"]{
-  --bg:#f5f7fb;
-  --bg2:#eef2f9;
-  --card:#ffffff;
-  --text:#0b1220;
-  --muted:#4b556b;
-  --line: rgba(12,18,32,.12);
-  --line2: rgba(12,18,32,.08);
-  --shadow: 0 18px 60px rgba(12,18,32,.12);
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:var(--font);
-  color:var(--text);
-  background:
-    radial-gradient(900px 600px at 20% 0%, rgba(77,163,255,.14), transparent 60%),
-    radial-gradient(800px 500px at 90% 10%, rgba(124,92,255,.12), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
-}
-
-a{color:inherit; text-decoration:none}
-.container{max-width:var(--max); margin:0 auto; padding:0 20px}
-.skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;}
-.skip:focus{left:18px; top:18px; width:auto; height:auto; padding:10px 12px; background:var(--card); border:1px solid var(--line); border-radius:12px; z-index:9999}
-
-/* Header */
-.header{
-  position:sticky; top:0; z-index:60;
-  backdrop-filter: blur(14px);
-  background: linear-gradient(180deg, rgba(7,11,20,.78), rgba(7,11,20,.42));
-  border-bottom:1px solid var(--line2);
-}
-[data-theme="light"] .header{
-  background: linear-gradient(180deg, rgba(245,247,251,.88), rgba(245,247,251,.55));
-}
-
-.headerInner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 0; gap:14px;
-}
-
-.brand{
-  display:flex; align-items:center; gap:10px;
-  font-weight:900; letter-spacing:-0.02em;
-}
-.brandLogo{width:28px; height:28px; border-radius:8px; object-fit:cover}
-.brandWord{opacity:.95}
-
-.nav{display:flex; align-items:center; gap:14px}
-.navLink{
-  color:var(--muted);
-  font-weight:900;
-  padding:10px 10px;
-  border-radius:12px;
-}
-.navLink:hover{background: rgba(255,255,255,.06); color:var(--text)}
-
-.headerRight{display:flex; align-items:center; gap:10px}
-.cta{
-  background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
-  padding:10px 14px; border-radius:14px;
-  font-weight:900; font-size:14px;
-  box-shadow: 0 10px 24px rgba(77,163,255,.18);
-}
-.cta:hover{filter:brightness(1.05)}
-
-.iconBtn{
-  border:1px solid var(--line);
-  background:transparent;
-  color:var(--text);
-  border-radius:14px;
-  padding:10px 12px;
-  cursor:pointer;
-  font-weight:900;
-}
-.dot{
-  width:10px; height:10px; border-radius:99px;
-  display:inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-}
-.menuBtn{display:none}
-
-/* Mobile drawer */
-.mobileDrawer{
-  display:none;
-  border-top:1px solid var(--line2);
-  background: rgba(7,11,20,.92);
-  backdrop-filter: blur(18px);
-  padding:14px;
-}
-[data-theme="light"] .mobileDrawer{ background: rgba(255,255,255,.92); }
-.mobileDrawer.open{display:block}
-.mobileTop{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px}
-.mobileTitle{font-weight:900}
-.mobileLinks{display:flex; flex-direction:column; gap:8px}
-.mobileLinks a{
-  padding:12px 12px;
-  border-radius:14px;
-  border:1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  font-weight:900;
-  color:var(--muted);
-}
-.mobileLinks a:hover{color:var(--text); background: rgba(255,255,255,.06)}
-
-/* HERO (image-first) */
-.hero{
-  position:relative;
-  padding:72px 0 24px;
-  overflow:hidden;
-}
-.heroBg{
-  position:absolute;
-  inset:0;
-  background-image: url("./assets/hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.05) contrast(1.05);
-  opacity: 1;
-}
-
-/* 오버레이를 분리해서 얹기 */
-.heroBg::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(700px 420px at 20% 10%, rgba(77,163,255,.18), transparent 60%),
-    radial-gradient(700px 420px at 85% 20%, rgba(124,92,255,.16), transparent 60%),
-    linear-gradient(90deg, rgba(7,11,20,.65) 0%, rgba(7,11,20,.30) 50%, rgba(7,11,20,.65) 100%);
-}
-
-[data-theme="light"] .heroBg{
-  opacity: .60;
-  filter: saturate(1.0) contrast(1.0);
-}
-
-.heroGrid{
-  position:relative;
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:22px;
-  align-items:start;
-}
-
-.heroLeft{
-  padding:18px;
-  border-radius:22px;
-  border:1px solid var(--line2);
-  background: rgba(0,0,0,.22);
-  backdrop-filter: blur(12px);
-}
-[data-theme="light"] .heroLeft{ background: rgba(255,255,255,.78); }
-
-.pill{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  color:var(--muted);
-  font-weight:900;
-  font-size:12px;
-}
-.pillDot{
-  width:8px; height:8px; border-radius:99px;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(77,163,255,.15);
-}
-
-h1{
-  margin:18px 0 12px;
-  font-size:52px;
-  line-height:1.02;
-  letter-spacing:-0.05em;
-}
-.grad{
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.lead{
-  margin:0 0 14px;
-  color: rgba(234,240,255,.93);
-  font-size:17px;
-  line-height:1.75;
-  max-width:62ch;
-}
-[data-theme="light"] .lead{ color: rgba(11,18,32,.82); }
-
-.whoRow{
-  margin: 8px 0 14px;
-  padding: 12px 12px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.06);
-}
-[data-theme="light"] .whoRow{
-  background: rgba(255,255,255,.92);
-  border-color: rgba(12,18,32,.10);
-}
-.whoTitle{
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  font-size:12px;
-  color: rgba(234,240,255,.82);
-}
-[data-theme="light"] .whoTitle{ color: rgba(11,18,32,.70); }
-.whoText{
-  margin:8px 0 0;
-  color: rgba(234,240,255,.90);
-  font-weight:700;
-  line-height:1.7;
-}
-[data-theme="light"] .whoText{ color: rgba(11,18,32,.78); }
-
-.heroBtns{display:flex; gap:10px; flex-wrap:wrap}
-.primary, .secondary{
-  padding:12px 14px;
-  border-radius:14px;
-  font-weight:900;
-  font-size:14px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--line);
-}
-.primary{
-  background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
-  border-color: transparent;
-}
-.primary:hover{filter:brightness(1.06)}
-.secondary{
-  background: rgba(255,255,255,.05);
-}
-.secondary:hover{background: rgba(255,255,255,.08)}
-.note{margin:14px 0 0; color: rgba(234,240,255,.72); font-size:12px; font-weight:700}
-
-/* Snapshot */
-.snapshot{
-  border-radius: var(--radius2);
-  border:1px solid var(--line2);
-  background: rgba(0,0,0,.20);
-  backdrop-filter: blur(14px);
-  padding:18px;
-  box-shadow: var(--shadow);
-}
-[data-theme="light"] .snapshot{ background: rgba(255,255,255,.86); }
-
-.snapTop{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px}
-.snapTitle{font-weight:900}
-.snapTag{
-  font-size:12px; font-weight:900;
-  color:var(--muted);
-  padding:6px 10px;
-  border:1px solid var(--line2);
-  border-radius:999px;
-  background: rgba(255,255,255,.03);
-}
-
-.kpis{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-.kpi{
-  border:1px solid var(--line2);
-  border-radius:16px;
-  padding:12px;
-  background: rgba(255,255,255,.03);
-}
-[data-theme="light"] .kpi{ background: #fff; }
-.kpiLabel{color:var(--muted); font-size:12px; font-weight:900; letter-spacing:.04em}
-.kpiVal{margin-top:6px; font-size:18px; font-weight:900}
-.kpiSub{margin-top:6px; color:var(--muted); font-size:12px; font-weight:700}
-
-.snapLine{height:1px; background: var(--line2); margin:14px 0}
-
-.snapMedia{
-  position:relative;
-  border-radius: 18px;
-  overflow:hidden;
-  border:1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  min-height: 180px;
-}
-.snapMedia img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  display:block;
-}
-.snapMediaOverlay{
-  position:absolute;
-  left:12px; right:12px; bottom:12px;
-  padding:12px 12px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.35);
-  backdrop-filter: blur(12px);
-}
-.snapMediaTitle{font-weight:900}
-.snapMediaSub{margin-top:4px; font-weight:700; color: rgba(234,240,255,.75); font-size:12px}
-
-/* Sections */
-.section{padding:56px 0}
-.sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:18px}
-.sectionHead h2{margin:0; font-size:28px; letter-spacing:-0.03em}
-.muted{color:var(--muted); line-height:1.7; font-weight:700}
-
-.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-.grid3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px}
-.panel{
-  background: rgba(255,255,255,.03);
-  border:1px solid var(--line2);
-  border-radius: var(--radius);
-  padding:18px;
-}
-[data-theme="light"] .panel{ background: var(--card); }
-
-.panelHead{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
-.badge{
-  font-size:12px; font-weight:900;
-  padding:6px 10px; border-radius:999px;
-  background: rgba(77,163,255,.20);
-  border:1px solid rgba(77,163,255,.28);
-}
-.badge.amber{
-  background: rgba(255,179,71,.18);
-  border:1px solid rgba(255,179,71,.28);
-}
-h3{margin:0; letter-spacing:-0.02em}
-.h4{font-size:16px; font-weight:900}
-
-.list{margin:14px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px}
-.list.compact{gap:8px}
-.tick{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:22px; height:22px;
-  border-radius:8px;
-  background: rgba(77,163,255,.16);
-  border:1px solid rgba(77,163,255,.20);
-  margin-right:10px;
-  font-weight:900;
-}
-
-.callout{
-  margin-top:14px;
-  display:flex; gap:12px; align-items:flex-start;
-  border:1px solid var(--line2);
-  border-radius: var(--radius);
-  padding:16px;
-  background: linear-gradient(135deg, rgba(77,163,255,.08), rgba(124,92,255,.06));
-}
-.calloutIcon{
-  width:34px; height:34px; border-radius:12px;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  font-weight:900;
-}
-.calloutTitle{font-weight:900}
-
-/* Contact */
-.contactGrid{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap:14px;
-}
-.contactCard{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.contactLabel{
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.contactValue{
-  font-size:18px;
-  font-weight:900;
-}
-.contactSub{font-size:12px}
-
-/* Partners (last) */
-.partnersSection{padding-top:24px}
-.partnersBox{
-  border:1px solid var(--line2);
-  border-radius: var(--radius2);
-  padding:18px;
-  background: rgba(255,255,255,.02);
-}
-.partnersLabel{
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:12px;
-}
-
-/* Footer */
-.footer{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid var(--line2);
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.small{font-size:12px}
-
-/* Responsive */
-@media (max-width: 980px){
-  .heroGrid{grid-template-columns:1fr}
-  .grid2, .grid3, .contactGrid{grid-template-columns:1fr}
-  .nav{display:none}
-  .cta{display:none}
-  .menuBtn{display:inline-flex}
-}
-@media (max-width: 520px){
-  .container{padding:0 16px}
-  h1{font-size:38px; line-height:1.06}
-  .lead{font-size:16px; line-height:1.8}
-  .primary, .secondary{width:100%}
-}
-
-/* Large charts */
-.chartBlock{
-  border:1px solid var(--line2);
-  border-radius:18px;
-  padding:14px;
-  background: rgba(255,255,255,.03);
-}
-[data-theme="light"] .chartBlock{ background:#fff; }
-
-.chartTop{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:10px;
-}
-
-.chartKicker{
-  font-weight:900;
-  font-size:14px;
-  letter-spacing:-0.01em;
-}
-
-.rangePills{
-  display:flex;
-  gap:8px;
-  padding:6px;
-  border-radius:999px;
-  border:1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-}
-
-.pillBtn{
-  border:0;
-  cursor:pointer;
-  font-weight:900;
-  font-size:12px;
-  padding:8px 10px;
-  border-radius:999px;
-  color: var(--muted);
-  background: transparent;
-}
-.pillBtn:hover{ background: rgba(255,255,255,.06); color: var(--text); }
-.pillBtn.active{
-  color: #fff;
-  background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
-}
-
-.chartWrap{
-  position:relative;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid var(--line2);
-  background: rgba(0,0,0,.14);
-}
-
-[data-theme="light"] .chartWrap{ background: rgba(255,255,255,.85); }
-
-.chartWrap canvas{
-  width:100%;
-  height:260px; /* 크게 */
-  display:block;
-}
-
-@media (max-width:520px){
-  .chartWrap canvas{ height:240px; }
-}
-
-/* Tooltip */
-.tooltip{
-  position:absolute;
-  pointer-events:none;
-  transform: translate(-50%, -110%);
-  min-width: 140px;
-  padding:10px 10px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.55);
-  backdrop-filter: blur(12px);
-  color: rgba(234,240,255,.92);
-  font-size:12px;
-  font-weight:800;
-  line-height:1.35;
-  box-shadow: 0 12px 32px rgba(0,0,0,.35);
-  opacity:0;
-  transition: opacity .10s ease;
-}
-[data-theme="light"] .tooltip{
-  background: rgba(255,255,255,.92);
-  color: rgba(11,18,32,.86);
-  border-color: rgba(12,18,32,.10);
-}
-.tooltip.show{ opacity:1; }
-
-.tipRow{ display:flex; justify-content:space-between; gap:12px; }
-.tipKey{ color: var(--muted); font-weight:900; }
-.tipVal{ font-weight:900; }
-
-/* =========================
-   Partners Marquee (Fixed)
-   ========================= */
-.partnersSection{padding-top:24px}
-
-.partnersBox{
-  border:1px solid var(--line2);
-  border-radius: var(--radius2);
-  padding:18px;
-  background: rgba(255,255,255,.02);
-}
-[data-theme="light"] .partnersBox{ background:#fff; }
-
-.partnersLabel{
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:12px;
-}
-
-.partnersNote{
-  margin-top:12px;
-}
-
-/* Marquee container */
-.marquee{
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  padding: 18px 0;
-}
-
-[data-theme="light"] .marquee{ background: rgba(245,247,251,.75); }
-
-/* side fade masks */
-.marquee::before,
-.marquee::after{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width: 110px;
-  z-index: 2;
-  pointer-events:none;
-}
-
-.marquee::before{
-  left:0;
-  background: linear-gradient(90deg, rgba(7,11,20,.92), rgba(7,11,20,0));
-}
-
-.marquee::after{
-  right:0;
-  background: linear-gradient(270deg, rgba(7,11,20,.92), rgba(7,11,20,0));
-}
-
-[data-theme="light"] .marquee::before{
-  background: linear-gradient(90deg, rgba(245,247,251,.98), rgba(245,247,251,0));
-}
-[data-theme="light"] .marquee::after{
-  background: linear-gradient(270deg, rgba(245,247,251,.98), rgba(245,247,251,0));
-}
-
-/* Track */
-.marqueeTrack{
-  display:flex;
-  align-items:center;
-  width:max-content;
-  gap:0;
-  will-change: transform;
-  animation: marqueeMove 36s linear infinite; /* slower = more premium */
-}
-
-/* Pause on hover */
-.marquee:hover .marqueeTrack{ animation-play-state: paused; }
-
-/* Groups */
-/* 간격 더 넓게 */
-.marqueeGroup{
-  display:flex;
-  align-items:center;
-  gap: 56px;          /* 40 -> 56 (원하는 만큼 더) */
-  padding: 0 34px;
-}
-
-/* 로고를 넣는 통일된 박스 */
-.logoChip{
-  height: 76px;               /* 모든 로고 높이 통일 기준 */
-  min-width: 160px;           /* 너무 작은 로고 방지 */
-  padding: 10px 14px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,.06);
-  background: rgba(255,255,255,.02);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* 로고 이미지는 박스 안에서 'fit' */
-.logoChip img{
-  max-height: 54px;           /* 로고 자체 높이 */
-  max-width: 260px;           /* 너무 긴 로고 제한 */
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: .92;
-  filter: grayscale(20%);     /* 원하면 0%로 */
-  transition: transform .2s ease, opacity .2s ease, filter .2s ease;
-}
-
-.logoChip:hover img{
-  opacity: 1;
-  filter: grayscale(0%);
-  transform: translateY(-1px);
-}
-
-/* 모바일 */
-@media (max-width:520px){
-  .marqueeGroup{ gap: 34px; padding: 0 18px; }
-  .logoChip{ height: 64px; min-width: 140px; }
-  .logoChip img{ max-height: 42px; max-width: 210px; }
-}
-
-@keyframes marqueeMove {
-  from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
-}
-
-/* Force animation back on track */
-.marqueeTrack{
-  display:flex !important;
-  align-items:center !important;
-  width:max-content !important;
-  will-change: transform !important;
-  animation: marqueeMove 36s linear infinite !important;
-  animation-play-state: running !important;
-}
-
-/* Prevent accidental pause from other rules */
-.marquee:hover .marqueeTrack{
-  animation-play-state: paused !important; /* hover시에만 멈춤 */
-}
-
-/* Strategy: Revenue drivers */
-.drivers{
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.driver{
-  border: 1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  border-radius: 16px;
-  padding: 12px;
-}
-
-[data-theme="light"] .driver{ background: #fff; }
-
-.driverTitle{
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  margin-bottom: 6px;
-}
-
-/* Strategy: Timeline */
-.timeline{
-  margin-top: 14px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-left: 14px;
-}
-
-.timeline::before{
-  content:"";
-  position:absolute;
-  left: 7px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(77,163,255,.55), rgba(124,92,255,.35));
-  opacity: .6;
-}
-
-.tItem{
-  display:flex;
-  gap: 12px;
-  align-items:flex-start;
-}
-
-.tDot{
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 0 5px rgba(77,163,255,.12);
-  margin-left: -2px;
-  margin-top: 6px;
-  flex: 0 0 auto;
-}
-
-.tBody{
-  flex: 1;
-  border: 1px solid var(--line2);
-  background: rgba(255,255,255,.02);
-  border-radius: 16px;
-  padding: 12px 12px;
-}
-
-[data-theme="light"] .tBody{ background:#fff; }
-
-.tTop{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tDate{
-  font-weight: 900;
-  color: rgba(234,240,255,.88);
-}
-
-[data-theme="light"] .tDate{ color: rgba(11,18,32,.78); }
-
-.tTag{
-  font-size: 12px;
-  font-weight: 900;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line2);
-  color: var(--muted);
-  background: rgba(255,255,255,.03);
-}
-
-.tTitle{
-  margin-top: 8px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-}
-
-@media (max-width: 520px){
-  .drivers{ grid-template-columns: 1fr; }
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strategy — IAM Capital</title>
+  <meta name="description" content="Revenue drivers and public operating principles. IAM Capital does not disclose proprietary parameters on the public site." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <link rel="icon" href="./assets/favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="manifest" href="./assets/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css?v=2" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container headerInner">
+      <a class="brand" href="./index.html" aria-label="IAM Capital Home">
+        <img class="brandLogo" src="./assets/iam-logo.png" alt="IAM Capital logo" />
+        <span class="brandWord">IAM Capital</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="navLink" href="./about.html">About us</a>
+        <a class="navLink" href="./strategy.html" aria-current="page">Strategy</a>
+        <a class="navLink" href="./insights.html">Insights</a>
+        <a class="navLink" href="./contact.html">Contact us</a>
+      </nav>
+
+      <div class="headerRight">
+        <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme">
+          <span class="dot"></span>
+        </button>
+
+        <button class="iconBtn menuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu">☰</button>
+        <a class="cta" href="./contact.html">Request an intro</a>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobileTop">
+        <div class="mobileTitle">Menu</div>
+        <button class="iconBtn" id="mobileCloseBtn" type="button" aria-label="Close menu">✕</button>
+      </div>
+
+      <div class="mobileLinks">
+        <a href="./about.html">About us</a>
+        <a href="./strategy.html">Strategy</a>
+        <a href="./insights.html">Insights</a>
+        <a href="./contact.html">Contact us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+
+        <div class="sectionHead">
+          <h2>Strategy</h2>
+          <p class="muted">
+            We disclose high-level categories only. Portfolio allocation may change dynamically based on market
+            and macro conditions.
+          </p>
+        </div>
+
+        <!-- Compact hero panel -->
+        <div class="panel" style="margin-bottom:14px;">
+          <h3 style="margin:0 0 8px; letter-spacing:-0.02em;">Adaptive allocation, risk-first execution</h3>
+          <p class="muted" style="margin:0;">
+            IAM Capital operates a systematic, process-driven approach. We publish public standards and
+            communication practices, while keeping proprietary parameters private. Risk constraints override
+            return optimization.
+          </p>
+
+          <div class="callout" style="margin-top:14px;">
+            <div class="calloutIcon">⟡</div>
+            <div class="calloutText">
+              <div class="calloutTitle">Disclosure</div>
+              <div class="muted">
+                We do not publish signals, portfolio weights, leverage limits, or execution rules on the public site.
+                Detailed diligence materials may be shared privately to qualified parties.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revenue drivers (keep only) -->
+        <div class="panel">
+          <div class="panelHead">
+            <div class="badge">Revenue drivers</div>
+            <h3>Primary sources</h3>
+          </div>
+
+          <p class="muted">
+            The firm’s return profile is supported by multiple drivers. Allocation across these categories may vary
+            with market structure and macro regime.
+          </p>
+
+          <div class="drivers">
+            <div class="driver">
+              <div class="driverTitle">Stable yield (Interest farming)</div>
+              <div class="muted small">Lending, staking, structured yield — with risk controls and hedging where applicable.</div>
+            </div>
+
+            <div class="driver">
+              <div class="driverTitle">Systematic automated trading</div>
+              <div class="muted small">Rule-based execution, monitoring, and fee-aware constraints.</div>
+            </div>
+
+            <div class="driver">
+              <div class="driverTitle">Strategic investments</div>
+              <div class="muted small">Selective, thesis-driven positions with governance and risk budgets.</div>
+            </div>
+
+            <div class="driver">
+              <div class="driverTitle">Arbitrage</div>
+              <div class="muted small">Cross-venue and market-structure opportunities within operational limits.</div>
+            </div>
+          </div>
+
+          <div class="muted small" style="margin-top:12px;">
+            For informational purposes only. Not investment advice. Past performance does not guarantee future results.
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="footerLeft">
+            <div class="muted small">© <span id="year"></span> IAM Capital. All rights reserved.</div>
+          </div>
+          <div class="footerRight muted small">
+            <span>For informational purposes only.</span>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
