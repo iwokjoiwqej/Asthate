@@ -374,13 +374,27 @@ function init(){
   window.addEventListener("resize", () => redrawAll());
 
   // Theme
-  const themeBtn = $("#themeBtn");
-  themeBtn?.addEventListener("click", () => {
-    const isLight = document.documentElement.getAttribute("data-theme") === "light";
-    setTheme(isLight ? "dark" : "light");
-    // redraw to update grid/text contrast
-    setTimeout(redrawAll, 0);
-  });
+  const themeBtn = document.getElementById("themeBtn");
+const root = document.documentElement; // <html>
+
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  root.setAttribute("data-theme", savedTheme);
+}
+
+themeBtn?.addEventListener("click", () => {
+  const current = root.getAttribute("data-theme");
+  const next = current === "light" ? "dark" : "light";
+
+  if (next === "dark") {
+    root.removeAttribute("data-theme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    root.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  }
+});
+
 
   // Footer year
   const year = $("#year");
