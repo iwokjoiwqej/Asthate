@@ -11,7 +11,7 @@ const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 const state = {
   kpis: [
     { label: "AUM", value: "94.2K USD", sub: "Indicative (internally managed)" },
-    { label: "IRR", value: "24.7%", sub: "Illustrative placeholder" },
+    { label: "IRR", value: "14.7%", sub: "Illustrative placeholder" },
     { label: "Team", value: "17", sub: "Core headcount" },
     { label: "Operating History", value: "12+ months", sub: "Live trading experience" },
   ],
