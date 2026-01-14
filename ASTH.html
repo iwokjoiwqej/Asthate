@@ -11,11 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Chart.js + Financial (Candlestick) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <!-- ✅ 이 줄 추가 -->
-  <script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/dist/date-fns.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@3.3.0/dist/chartjs-chart-financial.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/dist/date-fns.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@3.3.0/dist/chartjs-chart-financial.min.js"></script>
 
   <style>
     :root{
@@ -468,7 +467,7 @@
     </div>
 
   </div>
-
+  
   <script>
     // ===== Addresses =====
     const PAIR_ADDRESS     = "0xd99307addb593f9aff5ef9bee19a424cff27e765"; // pool address (Uniswap pair)
@@ -557,6 +556,21 @@
         down: cssVar("--down"),
       };
     }
+
+    // ✅ FIX: register candlestick controller/elements (CDN에서는 수동 등록이 필요할 때가 많음)
+(function registerFinancial(){
+  const fin = window.ChartFinancial || window["chartjs-chart-financial"];
+  if (!fin) {
+    console.error("ChartFinancial not found. Check script load.");
+    return;
+  }
+  if (fin.CandlestickController) {
+    Chart.register(fin.CandlestickController, fin.CandlestickElement);
+  }
+  if (fin.OhlcController) {
+    Chart.register(fin.OhlcController, fin.OhlcElement);
+  }
+})();
 
     // ===== Candle chart init =====
     const ctx = document.getElementById("candleChart").getContext("2d");
