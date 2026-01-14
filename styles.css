@@ -1,5 +1,6 @@
 /* =========================
-   Premium Typography Setup
+   Asthate — Black & Gold Theme
+   (Replaces blue/purple mood)
    ========================= */
 :root{
   /* Fonts */
@@ -7,47 +8,70 @@
   --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
   /* Theme */
-  --bg:#070b14;
-  --bg2:#0b1220;
-  --card:#0f1930;
-  --text:#eaf0ff;
-  --muted:#a6b2cb;
+  --bg:#070a10;
+  --bg2:#0a0f18;
+  --card:#0d1422;
+
+  --text:#eef3ff;
+  --muted:#a9b4cb;
+
   --line: rgba(255,255,255,.10);
   --line2: rgba(255,255,255,.06);
-  --accent:#4da3ff;
-  --accent2:#7c5cff;
-  --amber:#ffb347;
-  --shadow: 0 18px 60px rgba(0,0,0,.45);
+
+  /* ✅ Gold accents (main identity) */
+  --gold:#c9a227;       /* primary gold */
+  --gold2:#a88416;      /* deeper gold/bronze */
+  --amber:#ffb347;      /* optional warm highlight */
+
+  /* Replace old blue/purple variables with gold, to keep code compatible */
+  --accent: var(--gold);
+  --accent2: var(--gold2);
+
+  --shadow: 0 18px 60px rgba(0,0,0,.48);
   --radius: 18px;
   --radius2: 26px;
   --max: 1120px;
 }
 
 [data-theme="light"]{
-  --bg:#f5f7fb;
-  --bg2:#eef2f9;
+  --bg:#f6f5f0;
+  --bg2:#efece4;
   --card:#ffffff;
+
   --text:#0b1220;
   --muted:#4b556b;
+
   --line: rgba(12,18,32,.12);
   --line2: rgba(12,18,32,.08);
+
   --shadow: 0 18px 60px rgba(12,18,32,.12);
+
+  /* keep gold identity even in light mode */
+  --gold:#b88f12;
+  --gold2:#8f6f10;
+  --amber:#d98a2b;
+
+  --accent: var(--gold);
+  --accent2: var(--gold2);
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 
-/* ✅ Global typography (IMPORTANT) */
+/* ✅ Global typography */
 body{
   margin:0;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
   color:var(--text);
+
+  /* ✅ black + subtle gold glow (no blue/purple) */
   background:
-    radial-gradient(900px 600px at 20% 0%, rgba(77,163,255,.14), transparent 60%),
-    radial-gradient(800px 500px at 90% 10%, rgba(124,92,255,.12), transparent 60%),
+    radial-gradient(880px 560px at 22% 0%, rgba(201,162,39,.12), transparent 62%),
+    radial-gradient(760px 520px at 90% 8%, rgba(168,132,22,.10), transparent 60%),
     linear-gradient(180deg, var(--bg), var(--bg2));
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -82,11 +106,13 @@ h3{ margin:0; letter-spacing:-0.02em; }
 .header{
   position:sticky; top:0; z-index:60;
   backdrop-filter: blur(14px);
-  background: linear-gradient(180deg, rgba(7,11,20,.78), rgba(7,11,20,.42));
+
+  /* ✅ remove bluish tint */
+  background: linear-gradient(180deg, rgba(7,10,16,.82), rgba(7,10,16,.44));
   border-bottom:1px solid var(--line2);
 }
 [data-theme="light"] .header{
-  background: linear-gradient(180deg, rgba(245,247,251,.88), rgba(245,247,251,.55));
+  background: linear-gradient(180deg, rgba(246,245,240,.92), rgba(246,245,240,.62));
 }
 
 .headerInner{
@@ -116,19 +142,25 @@ h3{ margin:0; letter-spacing:-0.02em; }
   border-radius:12px;
   letter-spacing: -0.01em;
 }
-.navLink:hover{background: rgba(255,255,255,.06); color:var(--text)}
+.navLink:hover{
+  background: rgba(201,162,39,.10);
+  color:var(--text);
+  border:1px solid rgba(201,162,39,.18);
+}
 
 .headerRight{display:flex; align-items:center; gap:10px}
+
+/* CTA becomes gold */
 .cta{
   font-family: var(--font-heading);
-  background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
+  background: linear-gradient(135deg, rgba(201,162,39,.98), rgba(168,132,22,.92));
   padding:10px 14px; border-radius:14px;
   font-weight:800; font-size:13px;
   letter-spacing: .06em;
   text-transform: uppercase;
-  box-shadow: 0 10px 24px rgba(77,163,255,.18);
+  box-shadow: 0 10px 24px rgba(201,162,39,.18);
 }
-.cta:hover{filter:brightness(1.05)}
+.cta:hover{filter:brightness(1.06)}
 
 .iconBtn{
   border:1px solid var(--line);
@@ -140,10 +172,17 @@ h3{ margin:0; letter-spacing:-0.02em; }
   font-weight:800;
   font-family: var(--font-heading);
 }
+.iconBtn:hover{
+  border-color: rgba(201,162,39,.28);
+  background: rgba(201,162,39,.06);
+}
+
+/* Status dot now gold */
 .dot{
   width:10px; height:10px; border-radius:99px;
   display:inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  box-shadow: 0 0 0 4px rgba(201,162,39,.14);
 }
 .menuBtn{display:none}
 
@@ -151,7 +190,7 @@ h3{ margin:0; letter-spacing:-0.02em; }
 .mobileDrawer{
   display:none;
   border-top:1px solid var(--line2);
-  background: rgba(7,11,20,.92);
+  background: rgba(7,10,16,.94);
   backdrop-filter: blur(18px);
   padding:14px;
 }
@@ -169,7 +208,11 @@ h3{ margin:0; letter-spacing:-0.02em; }
   font-weight:700;
   color:var(--muted);
 }
-.mobileLinks a:hover{color:var(--text); background: rgba(255,255,255,.06)}
+.mobileLinks a:hover{
+  color:var(--text);
+  background: rgba(201,162,39,.08);
+  border-color: rgba(201,162,39,.18);
+}
 
 /* HERO */
 .hero{
@@ -184,7 +227,7 @@ h3{ margin:0; letter-spacing:-0.02em; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: saturate(1.05) contrast(1.05);
+  filter: saturate(1.03) contrast(1.05);
   opacity: 1;
 }
 .heroBg::after{
@@ -192,12 +235,12 @@ h3{ margin:0; letter-spacing:-0.02em; }
   position:absolute;
   inset:0;
   background:
-    radial-gradient(700px 420px at 20% 10%, rgba(77,163,255,.18), transparent 60%),
-    radial-gradient(700px 420px at 85% 20%, rgba(124,92,255,.16), transparent 60%),
-    linear-gradient(90deg, rgba(7,11,20,.65) 0%, rgba(7,11,20,.30) 50%, rgba(7,11,20,.65) 100%);
+    radial-gradient(700px 420px at 20% 10%, rgba(201,162,39,.18), transparent 60%),
+    radial-gradient(700px 420px at 85% 20%, rgba(168,132,22,.14), transparent 60%),
+    linear-gradient(90deg, rgba(7,10,16,.68) 0%, rgba(7,10,16,.32) 50%, rgba(7,10,16,.68) 100%);
 }
 [data-theme="light"] .heroBg{
-  opacity: .60;
+  opacity: .62;
   filter: saturate(1.0) contrast(1.0);
 }
 
@@ -213,32 +256,37 @@ h3{ margin:0; letter-spacing:-0.02em; }
   padding:18px;
   border-radius:22px;
   border:1px solid var(--line2);
-  background: rgba(0,0,0,.22);
+  background: rgba(0,0,0,.24);
   backdrop-filter: blur(12px);
 }
 [data-theme="light"] .heroLeft{ background: rgba(255,255,255,.78); }
 
+/* Pill uses gold */
 .pill{
   display:inline-flex; align-items:center; gap:10px;
   padding:8px 12px;
   border-radius:999px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  color:var(--muted);
+  border:1px solid rgba(201,162,39,.22);
+  background: rgba(201,162,39,.06);
+  color:rgba(234,240,255,.78);
   font-family: var(--font-heading);
   font-weight:700;
   font-size:12px;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
+[data-theme="light"] .pill{
+  color: rgba(11,18,32,.70);
+}
 .pillDot{
   width:8px; height:8px; border-radius:99px;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(77,163,255,.15);
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201,162,39,.14);
 }
 
+/* Gradient text becomes gold */
 .grad{
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
@@ -246,7 +294,7 @@ h3{ margin:0; letter-spacing:-0.02em; }
 
 .lead{
   margin:0 0 14px;
-  color: rgba(234,240,255,.93);
+  color: rgba(234,240,255,.92);
   font-size:17px;
   line-height:1.75;
   max-width:62ch;
@@ -283,6 +331,8 @@ h3{ margin:0; letter-spacing:-0.02em; }
 [data-theme="light"] .whoText{ color: rgba(11,18,32,.78); }
 
 .heroBtns{display:flex; gap:10px; flex-wrap:wrap}
+
+/* Buttons become gold */
 .primary, .secondary{
   padding:12px 14px;
   border-radius:14px;
@@ -297,21 +347,22 @@ h3{ margin:0; letter-spacing:-0.02em; }
   text-transform: uppercase;
 }
 .primary{
-  background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
+  background: linear-gradient(135deg, rgba(201,162,39,.98), rgba(168,132,22,.92));
   border-color: transparent;
+  box-shadow: 0 10px 24px rgba(201,162,39,.18);
 }
 .primary:hover{filter:brightness(1.06)}
 .secondary{
   background: rgba(255,255,255,.05);
 }
-.secondary:hover{background: rgba(255,255,255,.08)}
+.secondary:hover{background: rgba(201,162,39,.08); border-color: rgba(201,162,39,.22)}
 .note{margin:14px 0 0; color: rgba(234,240,255,.72); font-size:12px; font-weight:600}
 
 /* Snapshot */
 .snapshot{
   border-radius: var(--radius2);
   border:1px solid var(--line2);
-  background: rgba(0,0,0,.20);
+  background: rgba(0,0,0,.22);
   backdrop-filter: blur(14px);
   padding:18px;
   box-shadow: var(--shadow);
@@ -358,39 +409,46 @@ h3{ margin:0; letter-spacing:-0.02em; }
 [data-theme="light"] .panel{ background: var(--card); }
 
 .panelHead{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+
+/* Badge becomes gold (no blue) */
 .badge{
   font-size:12px; font-family: var(--font-heading); font-weight:700;
   padding:6px 10px; border-radius:999px;
-  background: rgba(77,163,255,.20);
-  border:1px solid rgba(77,163,255,.28);
+  background: rgba(201,162,39,.16);
+  border:1px solid rgba(201,162,39,.22);
   letter-spacing: .08em;
   text-transform: uppercase;
+  color: rgba(234,240,255,.86);
 }
+[data-theme="light"] .badge{ color: rgba(11,18,32,.72); }
 .badge.amber{
-  background: rgba(255,179,71,.18);
-  border:1px solid rgba(255,179,71,.28);
+  background: rgba(255,179,71,.16);
+  border:1px solid rgba(255,179,71,.22);
 }
 
 .list{margin:14px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px}
 .list.compact{gap:8px}
+
+/* Tick becomes gold */
 .tick{
   display:inline-flex; align-items:center; justify-content:center;
   width:22px; height:22px;
   border-radius:8px;
-  background: rgba(77,163,255,.16);
-  border:1px solid rgba(77,163,255,.20);
+  background: rgba(201,162,39,.14);
+  border:1px solid rgba(201,162,39,.20);
   margin-right:10px;
   font-weight:800;
   font-family: var(--font-heading);
 }
 
+/* Callout uses warm gold */
 .callout{
   margin-top:14px;
   display:flex; gap:12px; align-items:flex-start;
   border:1px solid var(--line2);
   border-radius: var(--radius);
   padding:16px;
-  background: linear-gradient(135deg, rgba(77,163,255,.08), rgba(124,92,255,.06));
+  background: linear-gradient(135deg, rgba(201,162,39,.08), rgba(168,132,22,.06));
 }
 .calloutIcon{
   width:34px; height:34px; border-radius:12px;
@@ -517,10 +575,12 @@ h3{ margin:0; letter-spacing:-0.02em; }
   letter-spacing: .10em;
   text-transform: uppercase;
 }
-.pillBtn:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+.pillBtn:hover{ background: rgba(201,162,39,.08); color: var(--text); }
+
+/* Active pill becomes gold */
 .pillBtn.active{
-  color: #fff;
-  background: linear-gradient(135deg, rgba(77,163,255,.98), rgba(124,92,255,.92));
+  color: #0b0f14;
+  background: linear-gradient(135deg, rgba(201,162,39,.98), rgba(168,132,22,.92));
 }
 
 .chartWrap{
@@ -549,9 +609,11 @@ h3{ margin:0; letter-spacing:-0.02em; }
   min-width: 140px;
   padding:10px 10px;
   border-radius:12px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.55);
+
+  border:1px solid rgba(201,162,39,.22);
+  background: rgba(0,0,0,.58);
   backdrop-filter: blur(12px);
+
   color: rgba(234,240,255,.92);
   font-size:12px;
   font-weight:700;
@@ -582,7 +644,7 @@ h3{ margin:0; letter-spacing:-0.02em; }
   background: rgba(255,255,255,.02);
   padding: 18px 0;
 }
-[data-theme="light"] .marquee{ background: rgba(245,247,251,.75); }
+[data-theme="light"] .marquee{ background: rgba(246,245,240,.80); }
 
 .marquee::before,
 .marquee::after{
@@ -595,17 +657,17 @@ h3{ margin:0; letter-spacing:-0.02em; }
 }
 .marquee::before{
   left:0;
-  background: linear-gradient(90deg, rgba(7,11,20,.92), rgba(7,11,20,0));
+  background: linear-gradient(90deg, rgba(7,10,16,.92), rgba(7,10,16,0));
 }
 .marquee::after{
   right:0;
-  background: linear-gradient(270deg, rgba(7,11,20,.92), rgba(7,11,20,0));
+  background: linear-gradient(270deg, rgba(7,10,16,.92), rgba(7,10,16,0));
 }
 [data-theme="light"] .marquee::before{
-  background: linear-gradient(90deg, rgba(245,247,251,.98), rgba(245,247,251,0));
+  background: linear-gradient(90deg, rgba(246,245,240,.98), rgba(246,245,240,0));
 }
 [data-theme="light"] .marquee::after{
-  background: linear-gradient(270deg, rgba(245,247,251,.98), rgba(245,247,251,0));
+  background: linear-gradient(270deg, rgba(246,245,240,.98), rgba(246,245,240,0));
 }
 
 .marqueeTrack{
@@ -644,10 +706,9 @@ h3{ margin:0; letter-spacing:-0.02em; }
   height: auto;
   object-fit: contain;
   opacity: .92;
-  filter: grayscale(20%);
+  filter: grayscale(25%);
   transition: transform .2s ease, opacity .2s ease, filter .2s ease;
 }
-
 .logoChip:hover img{
   opacity: 1;
   filter: grayscale(0%);
@@ -686,6 +747,7 @@ h3{ margin:0; letter-spacing:-0.02em; }
   margin-bottom: 6px;
 }
 
+/* Timeline becomes gold */
 .timeline{
   margin-top: 14px;
   position: relative;
@@ -701,14 +763,14 @@ h3{ margin:0; letter-spacing:-0.02em; }
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, rgba(77,163,255,.55), rgba(124,92,255,.35));
-  opacity: .6;
+  background: linear-gradient(180deg, rgba(201,162,39,.55), rgba(168,132,22,.32));
+  opacity: .7;
 }
 .tItem{display:flex; gap: 12px; align-items:flex-start;}
 .tDot{
   width: 14px; height: 14px; border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 0 0 5px rgba(77,163,255,.12);
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  box-shadow: 0 0 0 5px rgba(201,162,39,.12);
   margin-left: -2px;
   margin-top: 6px;
   flex: 0 0 auto;
