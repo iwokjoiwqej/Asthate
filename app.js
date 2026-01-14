@@ -19,9 +19,9 @@ const state = {
   ranges: ["30d", "1y", "all"],
   activeRange: { aum: "30d", irr: "30d" },
 
-  series: {
-    aum: {
-        irr: {
+const series = {
+  aum: {
+    irr: {
       unit: "%",
       formatY: (v) => `${v.toFixed(1)}%`,
       formatTip: (v) => `${v.toFixed(2)}%`,
@@ -37,9 +37,9 @@ const state = {
         "all": mkSeries(
           ["2026 Q1","2026 Q2","2026 Q3","2026 Q4","2028"],
           [14.6, 14.4, 15.8, 14.3, 15.7]
-        ),
+        )
       }
-    },
+    }
   }
 };
 
