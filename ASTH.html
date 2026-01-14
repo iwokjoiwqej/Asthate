@@ -7,23 +7,12 @@
 
   <!-- Sleek fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ASTH — Overview</title>
-
-  <!-- Sleek fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#0b0f14;
-      --card:#0f1620;
-      --card2:#0c121a;
       --text:#eaf1ff;
       --muted:#9fb0c8;
       --line:rgba(255,255,255,.08);
@@ -38,38 +27,37 @@
       color:var(--text);
       font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
-    a{color:inherit}
+    a{color:inherit; text-decoration:none}
     .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 80px}
 
-    /* Top hero (image or video) */
-.hero{
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border-radius:24px;
-  overflow:hidden;
-  height: 280px;        /* ✅ 이거 추가/고정 */
-  position:relative;
-  box-shadow:0 18px 60px rgba(0,0,0,.35);
-}
-
+    /* HERO */
+    .hero{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius:24px;
+      overflow:hidden;
+      height:320px; /* bigger logo */
+      position:relative;
+      box-shadow:0 18px 60px rgba(0,0,0,.35);
+    }
+    @media (max-width:600px){
+      .hero{ height:250px; }
+    }
     .hero .overlay{
       position:absolute; inset:0;
-      background:radial-gradient(800px 380px at 50% 0%, rgba(201,162,39,.15), transparent 60%);
+      background:radial-gradient(900px 420px at 50% 0%, rgba(201,162,39,.15), transparent 62%);
       pointer-events:none;
     }
+    .heroMedia{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:contain;
+      object-position:center;
+      padding: 6px 0; /* less padding = bigger logo */
+    }
 
-    /* IMPORTANT: make image behave inside fixed-height hero */
-.heroMedia{
-  width:100%;
-  height:100%;          /* ✅ hero의 고정 height에 맞춤 */
-  display:block;
-  object-fit:contain;   /* ✅ 로고 안 잘리게 */
-  object-position:center;
-  padding: 18px 0;      /* ✅ 위아래 여백 */
-}
-
-
-    /* Description */
+    /* DESCRIPTION */
     .desc{
       margin-top:22px;
       border:1px solid var(--line);
@@ -102,11 +90,11 @@
     }
     .pill b{color:var(--gold);font-weight:700}
 
-    /* Split section */
+    /* SPLIT */
     .grid{
       margin-top:22px;
       display:grid;
-      grid-template-columns: 1fr 1.3fr; /* left stats / right chart */
+      grid-template-columns: 1fr 1.3fr;
       gap:14px;
       align-items:stretch;
     }
@@ -114,7 +102,7 @@
       .grid{grid-template-columns:1fr}
     }
 
-    /* Stats */
+    /* STATS */
     .panel{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -123,13 +111,21 @@
       backdrop-filter: blur(8px);
     }
     .panelTitle{
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
       margin-bottom:10px;
       font-family:Sora, Inter, sans-serif;
       font-weight:700;
       letter-spacing:-.2px;
     }
-    .miniNote{color:var(--muted);font-size:12.5px}
+    .miniNote{color:var(--muted);font-size:12.5px; display:flex; gap:10px; align-items:center}
+    .dot{
+      width:8px;height:8px;border-radius:99px;
+      background:rgba(159,176,200,.6);
+      box-shadow:0 0 0 3px rgba(159,176,200,.12);
+    }
+    .dot.ok{ background: rgba(87, 233, 163, .9); box-shadow:0 0 0 3px rgba(87,233,163,.14); }
+    .dot.bad{ background: rgba(255, 98, 98, .9); box-shadow:0 0 0 3px rgba(255,98,98,.14); }
+
     .cards{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -153,8 +149,14 @@
       letter-spacing:-.2px;
     }
     .sub{margin-top:6px;color:rgba(159,176,200,.9);font-size:12.5px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
+    .link{
+      color:rgba(234,241,255,.92);
+      border-bottom:1px dashed rgba(234,241,255,.25);
+    }
+    .link:hover{ border-bottom-color: rgba(201,162,39,.6); color: rgba(201,162,39,.95); }
 
-    /* Chart */
+    /* CHART */
     .chartBox{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -181,12 +183,10 @@
       font-size:12px;
       white-space:nowrap;
     }
-
     .tvWrap{height:420px}
     @media (max-width:920px){
       .tvWrap{height:380px}
     }
-
     .tvWrap iframe{
       width:100%;
       height:100%;
@@ -194,9 +194,26 @@
       display:block;
     }
 
-    /* Footer spacing */
-    .foot{margin-top:26px;color:rgba(159,176,200,.75);font-size:12.5px}
+    .foot{
+      margin-top:26px;
+      color:rgba(159,176,200,.75);
+      font-size:12.5px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
     .foot span{color:var(--gold)}
+    .smallBtn{
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      color:rgba(234,241,255,.88);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      cursor:pointer;
+    }
+    .smallBtn:hover{ border-color: rgba(201,162,39,.35); }
   </style>
 </head>
 
@@ -221,20 +238,23 @@
       </p>
 
       <div class="pillRow">
-        <div class="pill"><b>Network</b> ERC-20 / EVM</div>
-        <div class="pill"><b>Token</b> ASTH</div>
-        <div class="pill"><b>Focus</b> Utility · Sustainability</div>
+        <div class="pill"><b>Network</b> Ethereum (ERC-20)</div>
+        <div class="pill"><b>Pair</b> ASTH / WETH</div>
+        <div class="pill"><b>Source</b> DexScreener</div>
       </div>
     </section>
 
-    <!-- SPLIT: left stats / right chart -->
+    <!-- SPLIT -->
     <section class="grid">
 
       <!-- LEFT: stats -->
       <div class="panel">
         <div class="panelTitle">
           <div>Key Statistics</div>
-          <div class="miniNote">Auto-updated (placeholder)</div>
+          <div class="miniNote">
+            <span class="dot" id="statusDot"></span>
+            <span id="statusText">Loading…</span>
+          </div>
         </div>
 
         <div class="cards">
@@ -247,31 +267,31 @@
           <div class="card">
             <div class="label">Market Cap</div>
             <div class="value" id="mcap">$—</div>
-            <div class="sub" id="mcapSub">Circulating: —</div>
+            <div class="sub" id="mcapSub">FDV: —</div>
+          </div>
+
+          <div class="card">
+            <div class="label">Liquidity</div>
+            <div class="value" id="liq">$—</div>
+            <div class="sub" id="liqSub">Base / Quote: —</div>
           </div>
 
           <div class="card">
             <div class="label">24h Volume</div>
             <div class="value" id="vol">$—</div>
-            <div class="sub" id="volSub">Liquidity: —</div>
+            <div class="sub" id="volSub">Txns (24h): —</div>
           </div>
 
           <div class="card">
-            <div class="label">Supply</div>
-            <div class="value" id="supply">—</div>
-            <div class="sub" id="supplySub">Total / Max</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Holders</div>
-            <div class="value" id="holders">—</div>
-            <div class="sub" id="holdersSub">On-chain</div>
+            <div class="label">Pair</div>
+            <div class="value mono" style="font-size:14px;word-break:break-all" id="pair">—</div>
+            <div class="sub"><a class="link" id="dexLink" href="#" target="_blank" rel="noopener">Open on DexScreener</a></div>
           </div>
 
           <div class="card">
             <div class="label">Contract</div>
-            <div class="value" style="font-size:14px;word-break:break-all" id="contract">—</div>
-            <div class="sub">Etherscan link</div>
+            <div class="value mono" style="font-size:14px;word-break:break-all" id="contract">—</div>
+            <div class="sub"><a class="link" id="scanLink" href="#" target="_blank" rel="noopener">Open on Etherscan</a></div>
           </div>
         </div>
       </div>
@@ -285,7 +305,11 @@
 
         <div class="tvWrap">
           <iframe
-            src="https://dexscreener.com/ethereum/0xPAIRADDRESS?embed=1&theme=dark&trades=0&info=0"
+            id="dexFrame"
+            src="about:blank"
+            title="ASTH DexScreener Chart"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
           ></iframe>
         </div>
@@ -294,326 +318,106 @@
     </section>
 
     <div class="foot">
-      Tip: Update the <span>pair address</span> and your <span>contract</span> to make this production-ready.
+      <span id="updatedAt">Last update: —</span>
+      <button class="smallBtn" id="refreshBtn" type="button">Refresh</button>
+      <span style="opacity:.85">Data updates automatically every 30 seconds.</span>
     </div>
 
   </div>
 
   <script>
-    // --- Placeholder stats (wire real data later: DexScreener API / GeckoTerminal / your backend) ---
-    const mock = {
-      price: 0.05778,
-      change24h: 86.44,
-      mcap: 57000,
-      circulating: 1000000,
-      volume24h: null,
-      supply: "—",
-      holders: "—",
-      contract: "0xYourContractHere"
-    };
+    // ====== CONFIG (yours) ======
+    const PAIR_ADDRESS = "0xd99307addb593f9aff5ef9bee19a424cff27e765"; // from your DexScreener URL
+    const CONTRACT_ADDRESS = "0x33474A970752D43107Ee01c3Ab03dCb6C017aCC6"; // your ERC-20 contract
 
-    const fmtUSD = (n) => {
-      if (n === null || n === undefined) return "$—";
-      return "$" + Number(n).toLocaleString(undefined, { maximumFractionDigits: 2 });
-    };
+    // DexScreener: embed + API
+    const DEX_URL = `https://dexscreener.com/ethereum/${PAIR_ADDRESS}`;
+    const EMBED_URL = `https://dexscreener.com/ethereum/${PAIR_ADDRESS}?embed=1&theme=dark&trades=0&info=0`;
+    const API_URL = `https://api.dexscreener.com/latest/dex/pairs/ethereum/${PAIR_ADDRESS}`;
 
-    document.getElementById("price").textContent = fmtUSD(mock.price);
-    document.getElementById("priceSub").textContent = `24h: ${mock.change24h ?? "—"}%`;
+    // ====== UI helpers ======
+    const $ = (id) => document.getElementById(id);
 
-    document.getElementById("mcap").textContent = fmtUSD(mock.mcap);
-    document.getElementById("mcapSub").textContent = `Circulating: ${Number(mock.circulating).toLocaleString()}`;
+    function fmtUSD(n, dp=2){
+      if (n === null || n === undefined || n === "" || Number.isNaN(Number(n))) return "$—";
+      const num = Number(n);
+      const digits = Math.abs(num) >= 1 ? dp : 6; // small price -> more precision
+      return "$" + num.toLocaleString(undefined, { maximumFractionDigits: digits });
+    }
+    function fmtNum(n, dp=2){
+      if (n === null || n === undefined || n === "" || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString(undefined, { maximumFractionDigits: dp });
+    }
+    function setStatus(ok, text){
+      const dot = $("statusDot");
+      dot.classList.remove("ok","bad");
+      dot.classList.add(ok ? "ok" : "bad");
+      $("statusText").textContent = text;
+    }
+    function setUpdated(){
+      const now = new Date();
+      $("updatedAt").textContent = "Last update: " + now.toLocaleString();
+    }
 
-    document.getElementById("vol").textContent = fmtUSD(mock.volume24h);
-    document.getElementById("volSub").textContent = "Liquidity: —";
+    // ====== init static links ======
+    $("dexLink").href = DEX_URL;
+    $("scanLink").href = `https://etherscan.io/token/${CONTRACT_ADDRESS}`;
+    $("contract").textContent = CONTRACT_ADDRESS;
+    $("pair").textContent = PAIR_ADDRESS;
+    $("dexFrame").src = EMBED_URL;
 
-    document.getElementById("supply").textContent = mock.supply;
-    document.getElementById("holders").textContent = mock.holders;
+    async function fetchStats(){
+      try{
+        setStatus(true, "Updating…");
+        const res = await fetch(API_URL, { cache: "no-store" });
+        if(!res.ok) throw new Error("API response not ok");
+        const data = await res.json();
+        const p = (data && data.pairs && data.pairs[0]) ? data.pairs[0] : null;
+        if(!p) throw new Error("No pair data");
 
-    document.getElementById("contract").textContent = mock.contract;
+        // core fields (defensive)
+        const priceUsd = p.priceUsd ?? null;
+        const change24h = p.priceChange?.h24 ?? null;
+
+        const mcap = p.marketCap ?? null;
+        const fdv  = p.fdv ?? null;
+
+        const liqUsd = p.liquidity?.usd ?? null;
+        const liqBase = p.liquidity?.base ?? null;
+        const liqQuote = p.liquidity?.quote ?? null;
+
+        const vol24h = p.volume?.h24 ?? null;
+        const txBuys = p.txns?.h24?.buys ?? null;
+        const txSells = p.txns?.h24?.sells ?? null;
+
+        // update UI
+        $("price").textContent = fmtUSD(priceUsd);
+        $("priceSub").textContent = `24h: ${change24h === null ? "—" : (Number(change24h).toFixed(2) + "%")}`;
+
+        $("mcap").textContent = fmtUSD(mcap, 0);
+        $("mcapSub").textContent = `FDV: ${fmtUSD(fdv, 0)}`;
+
+        $("liq").textContent = fmtUSD(liqUsd, 0);
+        $("liqSub").textContent = `Base / Quote: ${fmtNum(liqBase, 4)} / ${fmtNum(liqQuote, 4)}`;
+
+        $("vol").textContent = fmtUSD(vol24h, 0);
+        const txText = (txBuys === null && txSells === null) ? "—" : `${fmtNum(txBuys,0)} buys / ${fmtNum(txSells,0)} sells`;
+        $("volSub").textContent = `Txns (24h): ${txText}`;
+
+        setUpdated();
+        setStatus(true, "Live");
+      }catch(err){
+        console.error(err);
+        setStatus(false, "Failed to update");
+      }
+    }
+
+    // manual refresh
+    $("refreshBtn").addEventListener("click", fetchStats);
+
+    // initial + interval updates
+    fetchStats();
+    setInterval(fetchStats, 30000);
   </script>
 </body>
 </html>
-crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#0b0f14;
-      --card:#0f1620;
-      --card2:#0c121a;
-      --text:#eaf1ff;
-      --muted:#9fb0c8;
-      --line:rgba(255,255,255,.08);
-      --gold:#c9a227;
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:radial-gradient(1200px 600px at 50% -100px, rgba(201,162,39,.18), transparent 55%),
-                 linear-gradient(180deg, #070a0f 0%, var(--bg) 40%, #070a0f 100%);
-      color:var(--text);
-      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-    }
-    a{color:inherit}
-    .wrap{max-width:1080px;margin:0 auto;padding:28px 18px 80px}
-
-    /* Top hero (image or video) */
-    .hero{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border-radius:24px;
-      overflow:hidden;
-      min-height:180px;
-      max-height: 220px;
-      position:relative;
-      box-shadow:0 18px 60px rgba(0,0,0,.35);
-    }
-    .hero .overlay{
-      position:absolute; inset:0;
-      background:radial-gradient(800px 380px at 50% 0%, rgba(201,162,39,.15), transparent 60%);
-      pointer-events:none;
-    }
-    /* Use one of these:
-       1) <img class="heroMedia"> for image
-       2) <video class="heroMedia"> for video
-    */
-    .heroMedia {
-    object-fit: contain;   /* 이미지 잘리지 않게 */
-    max-height: 100%;
-    margin: 0 auto;
-  }
-    
-    .heroPlaceholder{
-      height:360px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, rgba(201,162,39,.12), rgba(255,255,255,.03));
-      color:rgba(234,241,255,.75);
-      font-family:Sora, Inter, sans-serif;
-      letter-spacing:.2px;
-    }
-
-    /* Description */
-    .desc{
-      margin-top:22px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(15,22,32,.55);
-      padding:22px 22px;
-      backdrop-filter: blur(8px);
-    }
-    .desc h1{
-      margin:0 0 10px;
-      font-family:Sora, Inter, sans-serif;
-      font-weight:700;
-      font-size:28px;
-      letter-spacing:-.3px;
-    }
-    .desc p{
-      margin:0;
-      color:var(--muted);
-      font-size:15.5px;
-      line-height:1.75;
-    }
-    .pillRow{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .pill{
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.22);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12.5px;
-      color:rgba(234,241,255,.82);
-    }
-    .pill b{color:var(--gold);font-weight:700}
-
-    /* Split section */
-    .grid{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns: 1fr 1.3fr; /* left stats / right chart */
-      gap:14px;
-      align-items:stretch;
-    }
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    /* Stats */
-    .panel{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(15,22,32,.55);
-      padding:16px;
-      backdrop-filter: blur(8px);
-    }
-    .panelTitle{
-      display:flex;align-items:center;justify-content:space-between;
-      margin-bottom:10px;
-      font-family:Sora, Inter, sans-serif;
-      font-weight:700;
-      letter-spacing:-.2px;
-    }
-    .miniNote{color:var(--muted);font-size:12.5px}
-    .cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-    @media (max-width: 520px){
-      .cards{grid-template-columns:1fr}
-    }
-    .card{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border-radius:14px;
-      padding:14px 14px;
-    }
-    .label{color:rgba(159,176,200,.9);font-size:12.5px}
-    .value{
-      margin-top:6px;
-      font-size:18px;
-      font-family:Sora, Inter, sans-serif;
-      font-weight:700;
-      letter-spacing:-.2px;
-    }
-    .sub{margin-top:6px;color:rgba(159,176,200,.9);font-size:12.5px}
-
-    /* Chart */
-    .chartBox{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(15,22,32,.55);
-      overflow:hidden;
-      backdrop-filter: blur(8px);
-    }
-    .chartHeader{
-      padding:14px 16px;
-      border-bottom:1px solid var(--line);
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-    }
-    .chartHeader .title{
-      font-family:Sora, Inter, sans-serif;
-      font-weight:700;
-      letter-spacing:-.2px;
-    }
-    .chartHeader .badge{
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.22);
-      color:rgba(234,241,255,.85);
-      border-radius:999px;
-      padding:7px 10px;
-      font-size:12px;
-      white-space:nowrap;
-    }
-    .tvWrap{height:420px}
-    @media (max-width:920px){
-      .tvWrap{height:380px}
-    }
-
-    /* Footer spacing */
-    .foot{margin-top:26px;color:rgba(159,176,200,.75);font-size:12.5px}
-    .foot span{color:var(--gold)}
-  </style>
-</head>
-
-<body>
-  <div class="wrap">
-
-    <section class="hero">
-      <div class="overlay"></div>
-
-<section class="hero">
-  <div class="overlay"></div>
-
-  <img
-    class="heroMedia"
-    src="./assets/asth-coin.png"
-    alt="ASTH coin"
-  />
-</section>
-
-
-    <!-- DESCRIPTION -->
-    <section class="desc">
-      <h1>ASTH <span style="color:#c9a227;font-weight:600;">Asset Overview</span></h1>
-      <p>
-        ASTH is a digital asset designed with a focus on transparency,
-        disciplined risk management, and long-term sustainability.
-        Rather than short-term speculation, ASTH aims to function as a
-        utility-driven token supported by verifiable data and
-        responsible capital deployment.
-      </p>
-
-      <div class="pillRow">
-        <div class="pill"><b>Network</b> ERC-20 / EVM</div>
-        <div class="pill"><b>Token</b> ASTH</div>
-        <div class="pill"><b>Focus</b> Utility · Sustainability</div>
-      </div>
-    </section>
-
-    <!-- SPLIT: left stats / right chart -->
-    <section class="grid">
-
-      <!-- LEFT: stats -->
-      <div class="panel">
-        <div class="panelTitle">
-          <div>Key Statistics</div>
-          <div class="miniNote">Auto-updated (placeholder)</div>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="label">Price</div>
-            <div class="value" id="price">$—</div>
-            <div class="sub" id="priceSub">24h: —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Market Cap</div>
-            <div class="value" id="mcap">$—</div>
-            <div class="sub" id="mcapSub">Circulating: —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">24h Volume</div>
-            <div class="value" id="vol">$—</div>
-            <div class="sub" id="volSub">Liquidity: —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Supply</div>
-            <div class="value" id="supply">—</div>
-            <div class="sub" id="supplySub">Total / Max</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Holders</div>
-            <div class="value" id="holders">—</div>
-            <div class="sub" id="holdersSub">On-chain</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Contract</div>
-            <div class="value" style="font-size:14px;word-break:break-all" id="contract">—</div>
-            <div class="sub">EtherScan link</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: chart -->
-      <div class="chartBox">
-        <div class="chartHeader">
-          <div class="title">ASTH Chart</div>
-          <div class="badge">TradingView Widget</div>
-        </div>
-
-<div class="tvWrap">
-  <iframe
-    src="https://dexscreener.com/ethereum/0xPAIRADDRESS?embed=1&theme=dark&trades=0&info=0"
-    title="ASTH DexScreener Chart"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    allowfullscreen
-  ></iframe>
-</div>
