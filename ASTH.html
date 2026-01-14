@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ASTH — Overview</title>
 
-  <!-- Fonts -->
+  <!-- Sleek fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Chart.js (for our own chart) -->
+  <!-- Chart.js (line chart) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
@@ -37,18 +37,13 @@
 
     /* ===== Top Navigation ===== */
     .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 14px;
       border:1px solid var(--line);
       border-radius:18px;
       background:rgba(15,22,32,.40);
       backdrop-filter: blur(10px);
-      position: sticky;
-      top: 14px;
-      z-index: 50;
+      position: sticky; top: 14px; z-index: 50;
     }
     .brand{display:flex;align-items:center;gap:10px}
     .brandMark{
@@ -146,7 +141,7 @@
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border-radius:24px;
       overflow:hidden;
-      height:360px; /* bigger */
+      height:360px; /* bigger logo */
       position:relative;
       box-shadow:0 18px 60px rgba(0,0,0,.35);
     }
@@ -157,11 +152,12 @@
       pointer-events:none;
     }
     .heroMedia{
-      width:100%; height:100%;
+      width:100%;
+      height:100%;
       display:block;
       object-fit:contain;
       object-position:center;
-      padding: 2px 0; /* minimal padding -> biggest logo */
+      padding: 2px 0;
     }
 
     /* DESCRIPTION */
@@ -247,7 +243,7 @@
     .link{color:rgba(234,241,255,.92);border-bottom:1px dashed rgba(234,241,255,.25);}
     .link:hover{ border-bottom-color: rgba(201,162,39,.6); color: rgba(201,162,39,.95); }
 
-    /* CHART (our own) */
+    /* CHART */
     .chartBox{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -260,7 +256,11 @@
       border-bottom:1px solid var(--line);
       display:flex;align-items:center;justify-content:space-between;gap:12px;
     }
-    .chartHeader .title{font-family:Sora, Inter, sans-serif;font-weight:700;letter-spacing:-.2px;}
+    .chartHeader .title{
+      font-family:Sora, Inter, sans-serif;
+      font-weight:700;
+      letter-spacing:-.2px;
+    }
     .chartHeader .badge{
       border:1px solid var(--line);
       background:var(--btn);
@@ -271,7 +271,7 @@
       white-space:nowrap;
     }
     .chartInner{padding:12px 14px 16px;}
-    .chartCanvasWrap{height: 420px;}
+    .chartCanvasWrap{height:420px;}
     @media (max-width:920px){ .chartCanvasWrap{height:380px} }
     canvas{width:100% !important; height:100% !important; display:block;}
 
@@ -284,7 +284,6 @@
       flex-wrap:wrap;
       align-items:center;
     }
-    .foot span{color:var(--gold)}
     .smallBtn{
       border:1px solid var(--line);
       background:var(--btn);
@@ -296,7 +295,7 @@
     }
     .smallBtn:hover{ border-color: rgba(201,162,39,.35); }
 
-    /* Theme (optional light) */
+    /* Light theme */
     html[data-theme="light"]{
       --bg:#f4f6fb;
       --text:#0b1220;
@@ -331,7 +330,6 @@
       </div>
     </header>
 
-    <!-- Mobile Drawer -->
     <div class="drawer" id="mobileDrawer" aria-hidden="true">
       <div class="drawerHead">
         <div class="drawerTitle">Menu</div>
@@ -372,8 +370,7 @@
 
     <!-- SPLIT -->
     <section class="grid">
-
-      <!-- LEFT: stats -->
+      <!-- LEFT -->
       <div class="panel">
         <div class="panelTitle">
           <div>Key Statistics</div>
@@ -422,10 +419,10 @@
         </div>
       </div>
 
-      <!-- RIGHT: our chart -->
+      <!-- RIGHT -->
       <div class="chartBox">
         <div class="chartHeader">
-          <div class="title">ASTH Price</div>
+          <div class="title">ASTH Price (Line)</div>
           <div class="badge" id="chartBadge">Live (30s)</div>
         </div>
 
@@ -435,26 +432,25 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <div class="foot">
       <span id="updatedAt">Last update: —</span>
       <button class="smallBtn" id="refreshBtn" type="button">Refresh</button>
-      <span style="opacity:.85">Stats update every 30 seconds. Chart updates on each refresh.</span>
+      <span style="opacity:.85">Updates every 30 seconds (data + chart).</span>
     </div>
 
   </div>
 
   <script>
-    // ====== CONFIG (yours) ======
+    // ====== CONFIG ======
     const PAIR_ADDRESS = "0xd99307addb593f9aff5ef9bee19a424cff27e765";
     const CONTRACT_ADDRESS = "0x33474A970752D43107Ee01c3Ab03dCb6C017aCC6";
 
-    const DEX_URL  = `https://dexscreener.com/ethereum/${PAIR_ADDRESS}`;
-    const API_URL  = `https://api.dexscreener.com/latest/dex/pairs/ethereum/${PAIR_ADDRESS}`;
+    const DEX_URL = `https://dexscreener.com/ethereum/${PAIR_ADDRESS}`;
+    const API_URL = `https://api.dexscreener.com/latest/dex/pairs/ethereum/${PAIR_ADDRESS}`;
 
-    // ====== NAV + THEME ======
+    // ====== Theme (single key: theme) ======
     const root = document.documentElement;
     const themeBtn = document.getElementById("themeBtn");
 
@@ -464,16 +460,16 @@
       localStorage.setItem("theme", t);
     }
     (function initTheme(){
-      const saved = localStorage.getItem("theme") || "dark";
-      setTheme(saved);
+      setTheme(localStorage.getItem("theme") || "dark");
     })();
 
     themeBtn?.addEventListener("click", () => {
       const isLight = root.getAttribute("data-theme") === "light";
       setTheme(isLight ? "dark" : "light");
-      priceChart?.update();
+      restyleChart();
     });
 
+    // ====== Mobile drawer ======
     function initMobileDrawer(){
       const btn = document.getElementById("mobileMenuBtn");
       const drawer = document.getElementById("mobileDrawer");
@@ -489,7 +485,7 @@
     }
     initMobileDrawer();
 
-    // ====== UI helpers ======
+    // ====== helpers ======
     const $ = (id) => document.getElementById(id);
 
     function fmtUSD(n, dp=2){
@@ -509,8 +505,7 @@
       $("statusText").textContent = text;
     }
     function setUpdated(){
-      const now = new Date();
-      $("updatedAt").textContent = "Last update: " + now.toLocaleString();
+      $("updatedAt").textContent = "Last update: " + new Date().toLocaleString();
     }
 
     // init static links
@@ -519,13 +514,9 @@
     $("contract").textContent = CONTRACT_ADDRESS;
     $("pair").textContent = PAIR_ADDRESS;
 
-    // ====== Our chart (line history from refresh samples) ======
-    // This is a "site-native" chart, but it only reflects the points we collect.
-    // For a truly accurate OHLC candle chart, you'd fetch candle data via an API (next section).
-    const history = {
-      labels: [],
-      prices: []
-    };
+    // ====== Line chart (accurate live price samples) ======
+    const history = { labels: [], prices: [] };
+    const MAX_POINTS = 120; // keep last 120 points
 
     function chartColors(){
       const isLight = root.getAttribute("data-theme") === "light";
@@ -536,12 +527,11 @@
     }
 
     const ctx = document.getElementById("priceChart").getContext("2d");
-    let priceChart = new Chart(ctx, {
+    const priceChart = new Chart(ctx, {
       type: "line",
       data: {
         labels: history.labels,
         datasets: [{
-          label: "ASTH Price (USD)",
           data: history.prices,
           tension: 0.25,
           fill: true,
@@ -552,14 +542,14 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        animation: { duration: 200 },
+        animation: { duration: 180 },
         plugins: {
           legend: { display: false },
           tooltip: {
             mode: "index",
             intersect: false,
             callbacks: {
-              label: (ctx) => ` ${fmtUSD(ctx.parsed.y)}`
+              label: (c) => ` ${fmtUSD(c.parsed.y)}`
             }
           }
         },
@@ -588,14 +578,28 @@
       priceChart.update();
     }
 
-    // ====== Fetch stats (DexScreener API) ======
+    function pushPricePoint(priceUsd){
+      const now = new Date();
+      const label = now.toLocaleTimeString([], { hour:"2-digit", minute:"2-digit" });
+      history.labels.push(label);
+      history.prices.push(Number(priceUsd));
+
+      if (history.labels.length > MAX_POINTS){
+        history.labels.shift();
+        history.prices.shift();
+      }
+      priceChart.update();
+    }
+
+    // ====== Fetch DexScreener stats ======
     async function fetchStats(){
       try{
         setStatus(true, "Updating…");
         const res = await fetch(API_URL, { cache: "no-store" });
         if(!res.ok) throw new Error("API response not ok");
+
         const data = await res.json();
-        const p = (data && data.pairs && data.pairs[0]) ? data.pairs[0] : null;
+        const p = data?.pairs?.[0];
         if(!p) throw new Error("No pair data");
 
         const priceUsd = p.priceUsd ?? null;
@@ -612,7 +616,7 @@
         const txBuys = p.txns?.h24?.buys ?? null;
         const txSells = p.txns?.h24?.sells ?? null;
 
-        // UI
+        // UI updates
         $("price").textContent = fmtUSD(priceUsd);
         $("priceSub").textContent = `24h: ${change24h === null ? "—" : (Number(change24h).toFixed(2) + "%")}`;
 
@@ -626,21 +630,9 @@
         const txText = (txBuys === null && txSells === null) ? "—" : `${fmtNum(txBuys,0)} buys / ${fmtNum(txSells,0)} sells`;
         $("volSub").textContent = `Txns (24h): ${txText}`;
 
-        // Chart sample point (site-native history)
+        // chart point
         if (priceUsd !== null && !Number.isNaN(Number(priceUsd))){
-          const now = new Date();
-          const label = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
-          history.labels.push(label);
-          history.prices.push(Number(priceUsd));
-
-          // keep last N points so it stays clean
-          const MAX = 60;
-          if (history.labels.length > MAX){
-            history.labels.shift();
-            history.prices.shift();
-          }
-          priceChart.update();
+          pushPricePoint(priceUsd);
         }
 
         setUpdated();
@@ -651,16 +643,13 @@
       }
     }
 
-    // manual refresh
     $("refreshBtn").addEventListener("click", () => { fetchStats(); restyleChart(); });
+    window.addEventListener("resize", restyleChart);
 
-    // initial + interval
+    // start
+    restyleChart();
     fetchStats();
     setInterval(fetchStats, 30000);
-
-    // restyle chart on resize / load
-    window.addEventListener("resize", restyleChart);
-    restyleChart();
   </script>
 </body>
 </html>
