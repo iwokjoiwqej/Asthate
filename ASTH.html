@@ -313,38 +313,5 @@
   }
   </script>
 
-  <script>
-    // --- Placeholder stats (you can wire real data later) ---
-    // Replace these with your real token stats API (DexScreener / GeckoTerminal / custom backend)
-    const mock = {
-      price: 0.0123,
-      change24h: 3.8,
-      mcap: 12500000,
-      circulating: 820000000,
-      volume24h: 940000,
-      supply: "1,000,000,000",
-      holders: "—",
-      contract: "0xYourContractHere"
-    };
-
-    const fmtUSD = (n) => {
-      if (n === null || n === undefined) return "—";
-      return "$" + Number(n).toLocaleString(undefined, { maximumFractionDigits: 2 });
-    };
-
-    document.getElementById("price").textContent = fmtUSD(mock.price);
-    document.getElementById("priceSub").textContent = `24h: ${mock.change24h}%`;
-
-    document.getElementById("mcap").textContent = fmtUSD(mock.mcap);
-    document.getElementById("mcapSub").textContent = `Circulating: ${Number(mock.circulating).toLocaleString()}`;
-
-    document.getElementById("vol").textContent = fmtUSD(mock.volume24h);
-    document.getElementById("volSub").textContent = "Liquidity: —";
-
-    document.getElementById("supply").textContent = mock.supply;
-    document.getElementById("holders").textContent = mock.holders;
-
-    document.getElementById("contract").textContent = mock.contract;
-  </script>
 </body>
 </html>
