@@ -31,7 +31,7 @@
       <div class="headerRight">
         <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme"><span class="dot"></span></button>
         <button class="iconBtn menuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu">☰</button>
-        <a class="cta" href="./contact.html">Request an intro</a>
+        <a class="cta" id="introBtn" href="./contact.html">Request an intro</a>
       </div>
     </div>
 
@@ -87,6 +87,57 @@
     </section>
   </main>
 
-  <script src="./app.js"></script>
+  <script>
+  (function () {
+    const btn = document.getElementById("introBtn");
+    if (!btn) return;
+
+    function showToast(msg) {
+      let toast = document.getElementById("toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast";
+        toast.style.position = "fixed";
+        toast.style.left = "50%";
+        toast.style.bottom = "28px";
+        toast.style.transform = "translateX(-50%)";
+        toast.style.padding = "12px 14px";
+        toast.style.borderRadius = "14px";
+        toast.style.border = "1px solid rgba(255,255,255,.12)";
+        toast.style.background = "rgba(10,14,20,.92)";
+        toast.style.backdropFilter = "blur(10px)";
+        toast.style.color = "rgba(234,241,255,.92)";
+        toast.style.fontFamily = "Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif";
+        toast.style.fontSize = "13px";
+        toast.style.boxShadow = "0 12px 40px rgba(0,0,0,.45)";
+        toast.style.opacity = "0";
+        toast.style.pointerEvents = "none";
+        toast.style.transition = "opacity .18s ease, transform .18s ease";
+        document.body.appendChild(toast);
+      }
+
+      toast.textContent = msg;
+      toast.style.transform = "translateX(-50%) translateY(6px)";
+      toast.style.opacity = "0";
+
+      requestAnimationFrame(() => {
+        toast.style.opacity = "1";
+        toast.style.transform = "translateX(-50%) translateY(0)";
+      });
+
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(-50%) translateY(6px)";
+      }, 1600);
+    }
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      showToast("To be updated.");
+    });
+  })();
+</script>
+
 </body>
 </html>
