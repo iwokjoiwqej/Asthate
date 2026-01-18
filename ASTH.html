@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ASTH — Overview</title>
 
+  <!-- ✅ strategy header styles -->
   <link rel="stylesheet" href="./styles.css?v=2" />
 
   <!-- Sleek fonts -->
@@ -42,92 +43,12 @@
       font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
     a{color:inherit; text-decoration:none}
+
+    /* ✅ keep original layout */
     .wrap{max-width:1080px;margin:0 auto;padding:18px 18px 80px}
 
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 14px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(15,22,32,.40);
-      backdrop-filter: blur(10px);
-      position: sticky; top: 14px; z-index: 50;
-    }
-    .brand{display:flex;align-items:center;gap:10px}
-    .brandText{font-family:Sora, Inter, sans-serif;font-weight:700;letter-spacing:-.2px}
-    .nav{display:flex;align-items:center;gap:16px}
-    .navLink{
-      font-family:Sora, Inter, sans-serif;
-      font-weight:600;
-      font-size:13px;
-      color:rgba(234,241,255,.80);
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
-    }
-    .navLink:hover{border-color: rgba(201,162,39,.28); color: rgba(201,162,39,.95);}
-    .navLink.active{
-      border-color: rgba(201,162,39,.35);
-      background: rgba(201,162,39,.08);
-      color: rgba(234,241,255,.92);
-    }
-    .navRight{display:flex;align-items:center;gap:10px}
-    .iconBtn{
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.22);
-      color:rgba(234,241,255,.9);
-      border-radius:12px;
-      padding:8px 10px;
-      font-size:14px;
-      cursor:pointer;
-    }
-    .iconBtn:hover{ border-color: rgba(201,162,39,.35); }
-    .mobileOnly{ display:none; }
-
-    .drawer{
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,.55);
-      opacity: 0; pointer-events:none;
-      transition: opacity .18s ease;
-      z-index: 999;
-    }
-    .drawer.open{opacity: 1; pointer-events:auto;}
-    .drawerHead{
-      position:absolute; top:18px; left:18px; right:18px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(15,22,32,.85);
-      backdrop-filter: blur(12px);
-      padding:12px;
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    .drawerTitle{font-family:Sora, Inter, sans-serif;font-weight:800;}
-    .drawerLinks{
-      position:absolute; top:84px; left:18px; right:18px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(15,22,32,.85);
-      backdrop-filter: blur(12px);
-      padding:12px;
-      display:flex; flex-direction:column; gap:8px;
-    }
-    .drawerLinks a{
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid transparent;
-      color:rgba(234,241,255,.88);
-      font-family:Sora, Inter, sans-serif;
-      font-weight:700;
-    }
-    .drawerLinks a:hover{border-color: rgba(201,162,39,.28); color: rgba(201,162,39,.95);}
-    .drawerLinks a.active{
-      border-color: rgba(201,162,39,.35);
-      background: rgba(201,162,39,.08);
-    }
-    @media (max-width: 920px){
-      .nav{ display:none; }
-      .mobileOnly{ display:inline-flex; }
-    }
+    /* ✅ spacing under strategy header */
+    main#main{ padding-top: 14px; }
 
     .hero{
       margin-top:16px;
@@ -317,162 +238,161 @@
       --grid: rgba(11,18,32,.10);
       --tick: rgba(11,18,32,.70);
     }
-
-    .brandLogoHeader{
-      width:28px;height:28px;max-width:28px;max-height:28px;
-      object-fit:contain;display:block;flex:0 0 28px;border-radius:8px;
-    }
-    .topbar .brand img{ width:28px !important; height:28px !important; max-width:28px !important; max-height:28px !important; }
   </style>
 </head>
 
-<script src="./app.js"></script>
-  
 <body>
-  <div class="wrap">
+  <a class="skip" href="#main">Skip to content</a>
 
-    <a class="skip" href="#main">Skip to content</a>
+  <!-- ✅ Strategy header (same as strategy.html) -->
+  <header class="header" id="top">
+    <div class="container headerInner">
+      <a class="brand" href="./index.html" aria-label="Asthate Home">
+        <img class="brandLogo" src="./assets/iam-logo.png" alt="Asthate logo" />
+        <span class="brandWord">Asthate</span>
+      </a>
 
-<header class="header" id="top">
-  <div class="container headerInner">
-    <a class="brand" href="./index.html" aria-label="Asthate Home">
-      <img class="brandLogo" src="./assets/iam-logo.png" alt="Asthate logo" />
-      <span class="brandWord">Asthate</span>
-    </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="navLink" href="./about.html">About us</a>
+        <a class="navLink" href="./strategy.html">Strategy</a>
+        <a class="navLink" href="./ASTH.html" aria-current="page">ASTH</a>
+        <a class="navLink" href="./contact.html">Contact us</a>
+      </nav>
 
-    <nav class="nav" aria-label="Primary">
-      <a class="navLink" href="./about.html">About us</a>
-      <a class="navLink" href="./strategy.html">Strategy</a>
-      <a class="navLink" href="./ASTH.html" aria-current="page">ASTH</a>
-      <a class="navLink" href="./contact.html">Contact us</a>
-    </nav>
+      <div class="headerRight">
+        <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme">
+          <span class="dot"></span>
+        </button>
 
-    <div class="headerRight">
-      <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme">
-        <span class="dot"></span>
-      </button>
-
-      <button class="iconBtn menuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu">☰</button>
-      <a class="cta" href="./contact.html">Request an intro</a>
-    </div>
-  </div>
-
-  <div class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
-    <div class="mobileTop">
-      <div class="mobileTitle">Menu</div>
-      <button class="iconBtn" id="mobileCloseBtn" type="button" aria-label="Close menu">✕</button>
-    </div>
-
-    <div class="mobileLinks">
-      <a href="./about.html">About us</a>
-      <a href="./strategy.html">Strategy</a>
-      <a href="./ASTH.html">ASTH</a>
-      <a href="./contact.html">Contact us</a>
-    </div>
-  </div>
-</header>
-
-    <section class="hero">
-      <div class="overlay"></div>
-      <img class="heroMedia" src="./assets/asth-coin.png" alt="ASTH coin" />
-    </section>
-
-    <section class="desc">
-      <h1>ASTH <span style="color:#c9a227;font-weight:600;">Asset Overview</span></h1>
-      <p>
-        ASTH is a digital asset designed with a focus on transparency,
-        disciplined risk management, and long-term sustainability.
-        Rather than short-term speculation, ASTH aims to function as a
-        utility-driven token supported by verifiable data and
-        responsible capital deployment.
-      </p>
-
-      <div class="pillRow">
-        <div class="pill"><b>Network</b> Ethereum (ERC-20)</div>
-        <div class="pill"><b>Pair</b> ASTH / WETH</div>
-        <div class="pill"><b>Source</b> DexScreener + GeckoTerminal</div>
+        <button class="iconBtn menuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu">☰</button>
+        <a class="cta" href="./contact.html">Request an intro</a>
       </div>
-    </section>
+    </div>
 
-    <section class="grid">
-      <div class="panel">
-        <div class="panelTitle">
-          <div>Key Statistics</div>
-          <div class="miniNote">
-            <span class="dot" id="statusDot"></span>
-            <span id="statusText">Loading…</span>
-          </div>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="label">Price</div>
-            <div class="value" id="price">$—</div>
-            <div class="sub" id="priceSub">24h: —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Market Cap</div>
-            <div class="value" id="mcap">$—</div>
-            <div class="sub" id="mcapSub">FDV: —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Liquidity</div>
-            <div class="value" id="liq">$—</div>
-            <div class="sub" id="liqSub">Base / Quote: —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">24h Volume</div>
-            <div class="value" id="vol">$—</div>
-            <div class="sub" id="volSub">Txns (24h): —</div>
-          </div>
-
-          <div class="card">
-            <div class="label">Pair</div>
-            <div class="value mono" style="font-size:14px;word-break:break-all" id="pair">—</div>
-            <div class="sub"><a class="link" id="dexLink" href="#" target="_blank" rel="noopener">Open on DexScreener</a></div>
-          </div>
-
-          <div class="card">
-            <div class="label">Contract</div>
-            <div class="value mono" style="font-size:14px;word-break:break-all" id="contract">—</div>
-            <div class="sub"><a class="link" id="scanLink" href="#" target="_blank" rel="noopener">Open on Etherscan</a></div>
-          </div>
-        </div>
+    <div class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
+      <div class="mobileTop">
+        <div class="mobileTitle">Menu</div>
+        <button class="iconBtn" id="mobileCloseBtn" type="button" aria-label="Close menu">✕</button>
       </div>
 
-      <div class="chartBox">
-        <div class="chartHeader">
-          <div class="title">ASTH Chart</div>
-          <div class="right">
-            <div class="tfRow" id="tfRow">
-              <button class="tfBtn active" data-tf="15m">15m</button>
-              <button class="tfBtn" data-tf="7d">7d</button>
-              <button class="tfBtn" data-tf="30d">30d</button>
-              <button class="tfBtn" data-tf="180d">180d</button>
+      <div class="mobileLinks">
+        <a href="./about.html">About us</a>
+        <a href="./strategy.html">Strategy</a>
+        <a href="./ASTH.html">ASTH</a>
+        <a href="./contact.html">Contact us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+
+      <section class="hero">
+        <div class="overlay"></div>
+        <img class="heroMedia" src="./assets/asth-coin.png" alt="ASTH coin" />
+      </section>
+
+      <section class="desc">
+        <h1>ASTH <span style="color:#c9a227;font-weight:600;">Asset Overview</span></h1>
+        <p>
+          ASTH is a digital asset designed with a focus on transparency,
+          disciplined risk management, and long-term sustainability.
+          Rather than short-term speculation, ASTH aims to function as a
+          utility-driven token supported by verifiable data and
+          responsible capital deployment.
+        </p>
+
+        <div class="pillRow">
+          <div class="pill"><b>Network</b> Ethereum (ERC-20)</div>
+          <div class="pill"><b>Pair</b> ASTH / WETH</div>
+          <div class="pill"><b>Source</b> DexScreener + GeckoTerminal</div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <div class="panelTitle">
+            <div>Key Statistics</div>
+            <div class="miniNote">
+              <span class="dot" id="statusDot"></span>
+              <span id="statusText">Loading…</span>
             </div>
-            <div class="badge" id="chartBadge">Loading…</div>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <div class="label">Price</div>
+              <div class="value" id="price">$—</div>
+              <div class="sub" id="priceSub">24h: —</div>
+            </div>
+
+            <div class="card">
+              <div class="label">Market Cap</div>
+              <div class="value" id="mcap">$—</div>
+              <div class="sub" id="mcapSub">FDV: —</div>
+            </div>
+
+            <div class="card">
+              <div class="label">Liquidity</div>
+              <div class="value" id="liq">$—</div>
+              <div class="sub" id="liqSub">Base / Quote: —</div>
+            </div>
+
+            <div class="card">
+              <div class="label">24h Volume</div>
+              <div class="value" id="vol">$—</div>
+              <div class="sub" id="volSub">Txns (24h): —</div>
+            </div>
+
+            <div class="card">
+              <div class="label">Pair</div>
+              <div class="value mono" style="font-size:14px;word-break:break-all" id="pair">—</div>
+              <div class="sub"><a class="link" id="dexLink" href="#" target="_blank" rel="noopener">Open on DexScreener</a></div>
+            </div>
+
+            <div class="card">
+              <div class="label">Contract</div>
+              <div class="value mono" style="font-size:14px;word-break:break-all" id="contract">—</div>
+              <div class="sub"><a class="link" id="scanLink" href="#" target="_blank" rel="noopener">Open on Etherscan</a></div>
+            </div>
           </div>
         </div>
 
-        <div class="chartInner">
-          <div class="chartCanvasWrap">
-            <canvas id="candleChart"></canvas>
+        <div class="chartBox">
+          <div class="chartHeader">
+            <div class="title">ASTH Chart</div>
+            <div class="right">
+              <div class="tfRow" id="tfRow">
+                <button class="tfBtn active" data-tf="15m">15m</button>
+                <button class="tfBtn" data-tf="7d">7d</button>
+                <button class="tfBtn" data-tf="30d">30d</button>
+                <button class="tfBtn" data-tf="180d">180d</button>
+              </div>
+              <div class="badge" id="chartBadge">Loading…</div>
+            </div>
+          </div>
+
+          <div class="chartInner">
+            <div class="chartCanvasWrap">
+              <canvas id="candleChart"></canvas>
+            </div>
           </div>
         </div>
+      </section>
+
+      <div class="foot">
+        <span id="updatedAt">Last update: —</span>
+        <button class="smallBtn" id="refreshBtn" type="button">Refresh</button>
+        <span style="opacity:.85">Updates every 30 seconds.</span>
       </div>
-    </section>
 
-    <div class="foot">
-      <span id="updatedAt">Last update: —</span>
-      <button class="smallBtn" id="refreshBtn" type="button">Refresh</button>
-      <span style="opacity:.85">Updates every 30 seconds.</span>
     </div>
+  </main>
 
-  </div>
+  <!-- ✅ strategy header behavior (theme + mobile drawer) -->
+  <script src="./app.js"></script>
 
+  <!-- ✅ keep your ASTH logic, but remove duplicate drawer/theme handlers -->
   <script>
     // ===== Addresses =====
     const PAIR_ADDRESS     = "0xd99307addb593f9aff5ef9bee19a424cff27e765";
@@ -486,41 +406,8 @@
     const GT_BASE = "https://api.geckoterminal.com/api/v2";
     const GT_NET  = "eth";
 
-    // ===== Theme =====
-    const root = document.documentElement;
-    const themeBtn = document.getElementById("themeBtn");
-
-    function setTheme(t){
-      if (t === "light") root.setAttribute("data-theme","light");
-      else root.removeAttribute("data-theme");
-      localStorage.setItem("theme", t);
-    }
-    (function initTheme(){
-      setTheme(localStorage.getItem("theme") || "dark");
-    })();
-
-    themeBtn?.addEventListener("click", () => {
-      const isLight = root.getAttribute("data-theme") === "light";
-      setTheme(isLight ? "dark" : "light");
-      restyleChart();
-    });
-
-    function initMobileDrawer(){
-      const btn = document.getElementById("mobileMenuBtn");
-      const drawer = document.getElementById("mobileDrawer");
-      const closeBtn = document.getElementById("mobileCloseBtn");
-      if (!btn || !drawer || !closeBtn) return;
-
-      const open = () => { drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false"); };
-      const close = () => { drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true"); };
-
-      btn.addEventListener("click", open);
-      closeBtn.addEventListener("click", close);
-      drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
-    }
-    initMobileDrawer();
-
     // ===== Helpers =====
+    const root = document.documentElement;
     const $ = (id) => document.getElementById(id);
 
     function fmtUSD(n, dp=2){
@@ -562,9 +449,6 @@
     // ===== Timeframe mapping =====
     const TF = {
       "15m":  { tf: "minute", agg: 15, limit: 300 },
-      "1h":   { tf: "hour",   agg: 1,  limit: 336 },
-      "4h":   { tf: "hour",   agg: 4,  limit: 450 },
-      "1d":   { tf: "day",    agg: 1,  limit: 180 },
       "7d":   { tf: "hour",   agg: 1,  limit: 168 },
       "30d":  { tf: "hour",   agg: 4,  limit: 180 },
       "180d": { tf: "day",    agg: 1,  limit: 180 },
@@ -572,6 +456,7 @@
 
     let currentTF = "15m";
     let chartMode = "auto"; // "candles" or "line"
+    let chart = null;
 
     function setChartBadge(text){ $("chartBadge").textContent = text; }
 
@@ -604,7 +489,6 @@
       return { candles, line };
     }
 
-    // ===== Dynamic loader for chartjs-chart-financial (with fallback CDN) =====
     async function loadScript(src){
       return new Promise((resolve, reject) => {
         const s = document.createElement("script");
@@ -618,13 +502,12 @@
 
     async function ensureFinancial(){
       if (window.ChartFinancial) return true;
-      // try unpkg first, then jsdelivr
       try{
         await loadScript("https://unpkg.com/chartjs-chart-financial@3.3.0/dist/chartjs-chart-financial.umd.min.js");
-      }catch(e1){
+      }catch(_){
         try{
           await loadScript("https://cdn.jsdelivr.net/npm/chartjs-chart-financial@3.3.0/dist/chartjs-chart-financial.umd.min.js");
-        }catch(e2){
+        }catch(__){
           return false;
         }
       }
@@ -642,9 +525,6 @@
         return false;
       }
     }
-
-    // ===== Create chart (candles if possible, else line) =====
-    let chart = null;
 
     function destroyChart(){
       try{ chart?.destroy(); }catch(_){}
@@ -731,39 +611,31 @@
       if (!chart) return;
       const t = chartTheme();
 
-      if (chartMode === "candles"){
-        chart.options.scales.x.grid.color = t.grid;
-        chart.options.scales.y.grid.color = t.grid;
-        chart.options.scales.x.ticks.color = t.tick;
-        chart.options.scales.y.ticks.color = t.tick;
+      chart.options.scales.x.grid.color = t.grid;
+      chart.options.scales.y.grid.color = t.grid;
+      chart.options.scales.x.ticks.color = t.tick;
+      chart.options.scales.y.ticks.color = t.tick;
 
+      if (chartMode === "candles"){
         const ds = chart.data.datasets[0];
         ds.color = { up: t.up, down: t.down, unchanged: t.down };
         ds.borderColor = { up: t.up, down: t.down, unchanged: t.down };
-        chart.update("none");
       } else {
-        chart.options.scales.x.grid.color = t.grid;
-        chart.options.scales.y.grid.color = t.grid;
-        chart.options.scales.x.ticks.color = t.tick;
-        chart.options.scales.y.ticks.color = t.tick;
         chart.data.datasets[0].borderColor = t.up;
-        chart.update("none");
       }
+      chart.update("none");
     }
 
     async function ensureChart(){
-      // try candles first
       setChartBadge("Loading chart lib…");
       const okLib = await ensureFinancial();
       if (okLib && registerFinancial()){
         createCandleChart();
         return;
       }
-      // fallback
       createLineChart();
     }
 
-    // ===== Load candles data =====
     async function loadCandles(tfKey, { quiet=false } = {}){
       currentTF = tfKey;
 
@@ -781,20 +653,17 @@
 
         if (chartMode === "candles"){
           chart.data.datasets[0].data = candles;
-          chart.update("none");
-          setChartBadge(`${tfKey} • Candles • Live (30s)`);
         } else {
           chart.data.datasets[0].data = line;
-          chart.update("none");
-          setChartBadge(`${tfKey} • Line • Live (30s)`);
         }
+        chart.update("none");
+        setChartBadge(`${tfKey} • ${chartMode === "candles" ? "Candles" : "Line"} • Live (30s)`);
       }catch(err){
         console.error(err);
         setChartBadge(`${tfKey} • data load failed`);
       }
     }
 
-    // ===== DexScreener stats (완전 분리) =====
     async function fetchStats(){
       try{
         setStatus(true, "Updating…");
@@ -840,7 +709,6 @@
       }
     }
 
-    // ===== UI =====
     function setActiveTFButton(tfKey){
       document.querySelectorAll(".tfBtn").forEach(b => b.classList.toggle("active", b.dataset.tf === tfKey));
     }
@@ -855,18 +723,18 @@
     });
 
     document.getElementById("refreshBtn").addEventListener("click", async () => {
-      fetchStats(); // 병렬로
+      fetchStats();
       loadCandles(currentTF, { quiet:true });
       restyleChart();
     });
 
     window.addEventListener("resize", restyleChart);
 
-    // ===== Boot =====
+    // ✅ react to theme toggle from app.js (data-theme change)
+    new MutationObserver(() => restyleChart()).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
     (async function boot(){
-      // chart 먼저 준비
       await ensureChart();
-      // data 로드 (병렬)
       fetchStats();
       loadCandles(currentTF);
 
