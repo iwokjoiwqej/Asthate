@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ASTH — Overview</title>
 
-  <!-- ✅ strategy header styles -->
   <link rel="stylesheet" href="./styles.css?v=2" />
 
   <!-- Sleek fonts -->
@@ -43,12 +42,7 @@
       font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
     a{color:inherit; text-decoration:none}
-
-    /* ✅ keep original layout */
     .wrap{max-width:1080px;margin:0 auto;padding:18px 18px 80px}
-
-    /* ✅ spacing under strategy header */
-    main#main{ padding-top: 14px; }
 
     .hero{
       margin-top:16px;
@@ -244,7 +238,7 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- ✅ Strategy header (same as strategy.html) -->
+  <!-- ✅ Strategy.html이랑 동일한 헤더 구조 -->
   <header class="header" id="top">
     <div class="container headerInner">
       <a class="brand" href="./index.html" aria-label="Asthate Home">
@@ -389,10 +383,10 @@
     </div>
   </main>
 
-  <!-- ✅ strategy header behavior (theme + mobile drawer) -->
+  <!-- ✅ app.js는 반드시 body 맨 아래에서 로드 -->
   <script src="./app.js"></script>
 
-  <!-- ✅ keep your ASTH logic, but remove duplicate drawer/theme handlers -->
+  <!-- ✅ 이 인라인 스크립트는 IIFE로 감싸서 $ 전역충돌 방지 -->
   <script>
   (() => {
     // ===== Addresses =====
@@ -407,8 +401,26 @@
     const GT_BASE = "https://api.geckoterminal.com/api/v2";
     const GT_NET  = "eth";
 
-    // ===== Helpers =====
+    // ===== Theme (only for chart restyle; header theme handled by app.js) =====
     const root = document.documentElement;
+    const themeBtn = document.getElementById("themeBtn");
+
+    function setTheme(t){
+      if (t === "light") root.setAttribute("data-theme","light");
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", t);
+    }
+    (function initTheme(){
+      setTheme(localStorage.getItem("theme") || "dark");
+    })();
+
+    themeBtn?.addEventListener("click", () => {
+      const isLight = root.getAttribute("data-theme") === "light";
+      setTheme(isLight ? "dark" : "light");
+      restyleChart();
+    });
+
+    // ===== Helpers =====
     const $ = (id) => document.getElementById(id);
 
     function fmtUSD(n, dp=2){
@@ -450,6 +462,9 @@
     // ===== Timeframe mapping =====
     const TF = {
       "15m":  { tf: "minute", agg: 15, limit: 300 },
+      "1h":   { tf: "hour",   agg: 1,  limit: 336 },
+      "4h":   { tf: "hour",   agg: 4,  limit: 450 },
+      "1d":   { tf: "day",    agg: 1,  limit: 180 },
       "7d":   { tf: "hour",   agg: 1,  limit: 168 },
       "30d":  { tf: "hour",   agg: 4,  limit: 180 },
       "180d": { tf: "day",    agg: 1,  limit: 180 },
@@ -505,10 +520,10 @@
       if (window.ChartFinancial) return true;
       try{
         await loadScript("https://unpkg.com/chartjs-chart-financial@3.3.0/dist/chartjs-chart-financial.umd.min.js");
-      }catch(_){
+      }catch(e1){
         try{
           await loadScript("https://cdn.jsdelivr.net/npm/chartjs-chart-financial@3.3.0/dist/chartjs-chart-financial.umd.min.js");
-        }catch(__){
+        }catch(e2){
           return false;
         }
       }
@@ -654,11 +669,13 @@
 
         if (chartMode === "candles"){
           chart.data.datasets[0].data = candles;
+          chart.update("none");
+          setChartBadge(`${tfKey} • Candles • Live (30s)`);
         } else {
           chart.data.datasets[0].data = line;
+          chart.update("none");
+          setChartBadge(`${tfKey} • Line • Live (30s)`);
         }
-        chart.update("none");
-        setChartBadge(`${tfKey} • ${chartMode === "candles" ? "Candles" : "Line"} • Live (30s)`);
       }catch(err){
         console.error(err);
         setChartBadge(`${tfKey} • data load failed`);
@@ -731,9 +748,6 @@
 
     window.addEventListener("resize", restyleChart);
 
-    // ✅ react to theme toggle from app.js (data-theme change)
-    new MutationObserver(() => restyleChart()).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-
     (async function boot(){
       await ensureChart();
       fetchStats();
@@ -742,6 +756,7 @@
       setInterval(fetchStats, 30000);
       setInterval(() => loadCandles(currentTF, { quiet:true }), 30000);
     })();
+  })();
   </script>
 </body>
 </html>
