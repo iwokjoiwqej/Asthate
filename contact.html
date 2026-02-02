@@ -5,15 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact us — Asthate</title>
   <meta name="description" content="Contact Asthate for introductions and diligence requests." />
+  <meta name="theme-color" content="#0b1220" />
+
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
   <link rel="manifest" href="./assets/site.webmanifest">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./styles.css?v=1" />
 </head>
+
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Header (SAME as about.html) -->
   <header class="header" id="top">
     <div class="container headerInner">
       <a class="brand" href="./index.html" aria-label="Asthate Home">
@@ -29,17 +37,22 @@
       </nav>
 
       <div class="headerRight">
-        <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme"><span class="dot"></span></button>
+        <button class="iconBtn" id="themeBtn" type="button" aria-label="Toggle theme">
+          <span class="dot"></span>
+        </button>
+
         <button class="iconBtn menuBtn" id="mobileMenuBtn" type="button" aria-label="Open menu">☰</button>
-        <a class="cta" id="introBtn" href="./contact.html">Request an intro</a>
+        <a class="cta" href="#contact">Request an intro</a>
       </div>
     </div>
 
+    <!-- Mobile drawer (SAME as about.html) -->
     <div class="mobileDrawer" id="mobileDrawer" aria-hidden="true">
       <div class="mobileTop">
         <div class="mobileTitle">Menu</div>
         <button class="iconBtn" id="mobileCloseBtn" type="button" aria-label="Close menu">✕</button>
       </div>
+
       <div class="mobileLinks">
         <a href="./about.html">About us</a>
         <a href="./strategy.html">Strategy</a>
@@ -50,13 +63,16 @@
   </header>
 
   <main id="main">
-    <section class="section">
+    <section class="section" id="contact">
       <div class="container">
         <div class="sectionHead">
           <h2>Contact us</h2>
-          <p class="muted">Introductions and diligence requests.</p>
+          <p class="muted">
+            Introductions and diligence requests. We respond within 24–48 hours on business days.
+          </p>
         </div>
 
+        <!-- Primary contact cards -->
         <div class="contactGrid">
           <div class="panel contactCard">
             <div class="contactLabel">Email</div>
@@ -65,9 +81,9 @@
           </div>
 
           <div class="panel contactCard">
-            <div class="contactLabel">Linked in</div>
+            <div class="contactLabel">LinkedIn</div>
             <a class="contactValue" href="https://www.linkedin.com/company/asthate/" target="_blank" rel="noopener">
-              https://www.linkedin.com/company/asthate/
+              Company Page
             </a>
             <div class="contactSub muted">Updates and introductions.</div>
           </div>
@@ -79,65 +95,48 @@
           </div>
         </div>
 
+        <!-- Extra professional block (same visual language as about.html) -->
+        <div class="callout">
+          <div class="calloutIcon">⟡</div>
+          <div class="calloutText">
+            <div class="calloutTitle">What to include in your email</div>
+            <div class="muted">
+              A brief intro, your investor profile, target ticket size, and timeline. If relevant, include preferred
+              communication channel and any diligence requirements.
+            </div>
+          </div>
+        </div>
+
+        <div class="grid2" style="margin-top:14px;">
+          <div class="panel">
+            <h3>Office hours</h3>
+            <p class="muted" style="margin:10px 0 0;">
+              Monday–Friday (SGT). We aim to reply within 24–48 hours on business days.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Disclosure</h3>
+            <p class="muted" style="margin:10px 0 0;">
+              This website is for informational purposes only and does not constitute investment advice.
+              Digital assets involve substantial risk including loss of capital.
+            </p>
+          </div>
+        </div>
+
         <footer class="footer">
-          <div class="footerLeft"><div class="muted small">© <span id="year"></span> Asthate. All rights reserved.</div></div>
-          <div class="footerRight muted small"><span>For informational purposes only.</span></div>
+          <div class="footerLeft">
+            <div class="muted small">© <span id="year"></span> Asthate. All rights reserved.</div>
+          </div>
+          <div class="footerRight muted small">
+            <span>For informational purposes only.</span>
+          </div>
         </footer>
       </div>
     </section>
   </main>
 
-  <script>
-  (function () {
-    const btn = document.getElementById("introBtn");
-    if (!btn) return;
-
-    function showToast(msg) {
-      let toast = document.getElementById("toast");
-      if (!toast) {
-        toast = document.createElement("div");
-        toast.id = "toast";
-        toast.style.position = "fixed";
-        toast.style.left = "50%";
-        toast.style.bottom = "28px";
-        toast.style.transform = "translateX(-50%)";
-        toast.style.padding = "12px 14px";
-        toast.style.borderRadius = "14px";
-        toast.style.border = "1px solid rgba(255,255,255,.12)";
-        toast.style.background = "rgba(10,14,20,.92)";
-        toast.style.backdropFilter = "blur(10px)";
-        toast.style.color = "rgba(234,241,255,.92)";
-        toast.style.fontFamily = "Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif";
-        toast.style.fontSize = "13px";
-        toast.style.boxShadow = "0 12px 40px rgba(0,0,0,.45)";
-        toast.style.opacity = "0";
-        toast.style.pointerEvents = "none";
-        toast.style.transition = "opacity .18s ease, transform .18s ease";
-        document.body.appendChild(toast);
-      }
-
-      toast.textContent = msg;
-      toast.style.transform = "translateX(-50%) translateY(6px)";
-      toast.style.opacity = "0";
-
-      requestAnimationFrame(() => {
-        toast.style.opacity = "1";
-        toast.style.transform = "translateX(-50%) translateY(0)";
-      });
-
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(() => {
-        toast.style.opacity = "0";
-        toast.style.transform = "translateX(-50%) translateY(6px)";
-      }, 1600);
-    }
-
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      showToast("To be updated.");
-    });
-  })();
-</script>
-
+  <!-- SAME as about.html -->
+  <script src="./app.js"></script>
 </body>
 </html>
